@@ -1,0 +1,3043 @@
+<?xml version="1.1" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog logicalFilePath="initial/tables.xml"
+				   xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+				   xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext"
+				   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+				   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd">
+
+	<changeSet author="CodeGeneration" id="create_generated_table_action" labels="version:">
+		<preConditions onFail="MARK_RAN">
+			<not>
+				<tableExists tableName="action" />
+			</not>
+		</preConditions>
+		<createTable tableName="action">
+			<column name="id" type="${UUID}">
+				<constraints nullable="false" primaryKey="true"/>
+			</column>
+			<column name="action_set" type="VARCHAR(255)" />
+			<column name="action_set_id" type="VARCHAR(255)" />
+			<column name="command" type="VARCHAR(255)" />
+			<column name="command_type" type="VARCHAR(255)" >
+				<constraints nullable="false"/>
+			</column>
+			<column name="created_date" type="VARCHAR(255)" >
+				<constraints nullable="false"/>
+			</column>
+			<column name="description" type="VARCHAR(255)" />
+			<column name="is_deleted" type="${BOOLEAN_VALUE}" >
+				<constraints nullable="false"/>
+			</column>
+			<column name="name" type="VARCHAR(255)" >
+				<constraints nullable="false"/>
+			</column>
+			<column name="trigger_id" type="VARCHAR(255)" >
+				<constraints nullable="false"/>
+			</column>
+			<column name="trigger_value" type="bigint" />
+			<column name="trigger_value_unit" type="VARCHAR(255)" />
+			<column name="updated_date" type="VARCHAR(255)" />
+		</createTable>
+	</changeSet>
+	<changeSet author="CodeGeneration" id="create_generated_table_action_set" labels="version:">
+		<preConditions onFail="MARK_RAN">
+			<not>
+				<tableExists tableName="action_set" />
+			</not>
+		</preConditions>
+		<createTable tableName="action_set">
+			<column name="id" type="${UUID}">
+				<constraints nullable="false" primaryKey="true"/>
+			</column>
+			<column name="created_date" type="VARCHAR(255)" >
+				<constraints nullable="false"/>
+			</column>
+			<column name="description" type="VARCHAR(255)" />
+			<column name="is_deleted" type="${BOOLEAN_VALUE}" >
+				<constraints nullable="false"/>
+			</column>
+			<column name="name" type="VARCHAR(255)" >
+				<constraints nullable="false"/>
+			</column>
+			<column name="realm" type="VARCHAR(255)" />
+			<column name="updated_date" type="VARCHAR(255)" />
+		</createTable>
+	</changeSet>
+	<changeSet author="CodeGeneration" id="create_generated_table_action_trigger" labels="version:">
+		<preConditions onFail="MARK_RAN">
+			<not>
+				<tableExists tableName="action_trigger" />
+			</not>
+		</preConditions>
+		<createTable tableName="action_trigger">
+			<column name="id" type="${UUID}">
+				<constraints nullable="false" primaryKey="true"/>
+			</column>
+			<column name="created_date" type="VARCHAR(255)" >
+				<constraints nullable="false"/>
+			</column>
+			<column name="has_value" type="${BOOLEAN_VALUE}" >
+				<constraints nullable="false"/>
+			</column>
+			<column name="is_deleted" type="${BOOLEAN_VALUE}" >
+				<constraints nullable="false"/>
+			</column>
+			<column name="is_system" type="${BOOLEAN_VALUE}" >
+				<constraints nullable="false"/>
+			</column>
+			<column name="name" type="VARCHAR(255)" >
+				<constraints nullable="false"/>
+			</column>
+			<column name="type" type="VARCHAR(255)" >
+				<constraints nullable="false"/>
+			</column>
+			<column name="updated_date" type="VARCHAR(255)" />
+			<column name="value_type" type="${JSON_OBJECT}"/>
+		</createTable>
+	</changeSet>
+	<changeSet author="CodeGeneration" id="create_generated_table_bonus_step" labels="version:">
+		<preConditions onFail="MARK_RAN">
+			<not>
+				<tableExists tableName="bonus_step" />
+			</not>
+		</preConditions>
+		<createTable tableName="bonus_step">
+			<column name="id" type="${UUID}">
+				<constraints nullable="false" primaryKey="true"/>
+			</column>
+			<column name="balance_id" type="VARCHAR(255)" />
+			<column name="bonus" type="VARCHAR(255)" />
+			<column name="currency" type="VARCHAR(255)" >
+				<constraints nullable="false"/>
+			</column>
+			<column name="from_" type="decimal(10,2)" />
+			<column name="to_" type="decimal(10,2)" />
+			<column name="value_" type="decimal(10,2)" />
+		</createTable>
+	</changeSet>
+	<changeSet author="CodeGeneration" id="create_generated_table_calendar_view" labels="version:">
+		<preConditions onFail="MARK_RAN">
+			<not>
+				<tableExists tableName="calendar_view" />
+			</not>
+		</preConditions>
+		<createTable tableName="calendar_view">
+			<column name="id" type="${UUID}">
+				<constraints nullable="false" primaryKey="true"/>
+			</column>
+			<column name="description" type="VARCHAR(255)" />
+			<column name="name" type="VARCHAR(255)" >
+				<constraints nullable="false"/>
+			</column>
+		</createTable>
+	</changeSet>
+	<changeSet author="CodeGeneration" id="create_generated_table_catalog_balance" labels="version:">
+		<preConditions onFail="MARK_RAN">
+			<not>
+				<tableExists tableName="catalog_balance" />
+			</not>
+		</preConditions>
+		<createTable tableName="catalog_balance">
+			<column name="id" type="${UUID}">
+				<constraints nullable="false" primaryKey="true"/>
+			</column>
+			<column name="created_date" type="VARCHAR(255)" >
+				<constraints nullable="false"/>
+			</column>
+			<column name="currency_id" type="VARCHAR(255)" >
+				<constraints nullable="false"/>
+			</column>
+			<column name="description" type="VARCHAR(255)" />
+			<column name="is_deleted" type="${BOOLEAN_VALUE}" >
+				<constraints nullable="false"/>
+			</column>
+			<column name="is_external" type="${BOOLEAN_VALUE}" >
+				<constraints nullable="false"/>
+			</column>
+			<column name="is_virtual" type="${BOOLEAN_VALUE}" >
+				<constraints nullable="false"/>
+			</column>
+			<column name="maximum_balance" type="bigint" >
+				<constraints nullable="false"/>
+			</column>
+			<column name="minimum_balance" type="bigint" >
+				<constraints nullable="false"/>
+			</column>
+			<column name="name" type="VARCHAR(255)" />
+			<column name="realm" type="VARCHAR(255)" >
+				<constraints nullable="false"/>
+			</column>
+			<column name="type" type="VARCHAR(255)" >
+				<constraints nullable="false"/>
+			</column>
+			<column name="updated_date" type="VARCHAR(255)" />
+		</createTable>
+	</changeSet>
+	<changeSet author="CodeGeneration" id="create_generated_table_catalog_balance_dto" labels="version:">
+		<preConditions onFail="MARK_RAN">
+			<not>
+				<tableExists tableName="catalog_balance_dto" />
+			</not>
+		</preConditions>
+		<createTable tableName="catalog_balance_dto">
+			<column name="id" type="${UUID}">
+				<constraints nullable="false" primaryKey="true"/>
+			</column>
+			<column name="currency_id" type="VARCHAR(255)" />
+			<column name="description" type="VARCHAR(255)" />
+			<column name="is_external" type="${BOOLEAN_VALUE}" >
+				<constraints nullable="false"/>
+			</column>
+			<column name="is_virtual" type="${BOOLEAN_VALUE}" >
+				<constraints nullable="false"/>
+			</column>
+			<column name="maximum_balance" type="bigint" >
+				<constraints nullable="false"/>
+			</column>
+			<column name="minimum_balance" type="bigint" >
+				<constraints nullable="false"/>
+			</column>
+			<column name="name" type="VARCHAR(255)" />
+			<column name="type" type="VARCHAR(255)" >
+				<constraints nullable="false"/>
+			</column>
+		</createTable>
+	</changeSet>
+	<changeSet author="CodeGeneration" id="create_generated_table_catalog_billing_action" labels="version:">
+		<preConditions onFail="MARK_RAN">
+			<not>
+				<tableExists tableName="catalog_billing_action" />
+			</not>
+		</preConditions>
+		<createTable tableName="catalog_billing_action">
+			<column name="id" type="${UUID}">
+				<constraints nullable="false" primaryKey="true"/>
+			</column>
+			<column name="billing_action_set" type="VARCHAR(255)" />
+			<column name="command" type="VARCHAR(255)" >
+				<constraints nullable="false"/>
+			</column>
+			<column name="command_type" type="VARCHAR(255)" >
+				<constraints nullable="false"/>
+			</column>
+			<column name="description" type="VARCHAR(255)" />
+			<column name="name" type="VARCHAR(255)" >
+				<constraints nullable="false"/>
+			</column>
+		</createTable>
+	</changeSet>
+	<changeSet author="CodeGeneration" id="create_generated_table_catalog_billing_action_set" labels="version:">
+		<preConditions onFail="MARK_RAN">
+			<not>
+				<tableExists tableName="catalog_billing_action_set" />
+			</not>
+		</preConditions>
+		<createTable tableName="catalog_billing_action_set">
+			<column name="id" type="${UUID}">
+				<constraints nullable="false" primaryKey="true"/>
+			</column>
+			<column name="created_date" type="VARCHAR(255)" >
+				<constraints nullable="false"/>
+			</column>
+			<column name="description" type="VARCHAR(255)" />
+			<column name="is_deleted" type="${BOOLEAN_VALUE}" >
+				<constraints nullable="false"/>
+			</column>
+			<column name="name" type="VARCHAR(255)" >
+				<constraints nullable="false"/>
+			</column>
+			<column name="updated_date" type="VARCHAR(255)" />
+		</createTable>
+	</changeSet>
+	<changeSet author="CodeGeneration" id="create_generated_table_catalog_billing_bonus" labels="version:">
+		<preConditions onFail="MARK_RAN">
+			<not>
+				<tableExists tableName="catalog_billing_bonus" />
+			</not>
+		</preConditions>
+		<createTable tableName="catalog_billing_bonus">
+			<column name="id" type="${UUID}">
+				<constraints nullable="false" primaryKey="true"/>
+			</column>
+			<column name="created_date" type="VARCHAR(255)" >
+				<constraints nullable="false"/>
+			</column>
+			<column name="description" type="VARCHAR(255)" />
+			<column name="entity_type" type="VARCHAR(255)" >
+				<constraints nullable="false"/>
+			</column>
+			<column name="is_deleted" type="${BOOLEAN_VALUE}" >
+				<constraints nullable="false"/>
+			</column>
+			<column name="name" type="VARCHAR(255)" />
+			<column name="type" type="VARCHAR(255)" >
+				<constraints nullable="false"/>
+			</column>
+			<column name="unit_type" type="VARCHAR(255)" />
+			<column name="updated_date" type="VARCHAR(255)" />
+		</createTable>
+	</changeSet>
+	<changeSet author="CodeGeneration" id="create_generated_table_catalog_billing_bonus_set" labels="version:">
+		<preConditions onFail="MARK_RAN">
+			<not>
+				<tableExists tableName="catalog_billing_bonus_set" />
+			</not>
+		</preConditions>
+		<createTable tableName="catalog_billing_bonus_set">
+			<column name="id" type="${UUID}">
+				<constraints nullable="false" primaryKey="true"/>
+			</column>
+			<column name="created_date" type="VARCHAR(255)" >
+				<constraints nullable="false"/>
+			</column>
+			<column name="description" type="VARCHAR(255)" />
+			<column name="is_deleted" type="${BOOLEAN_VALUE}" >
+				<constraints nullable="false"/>
+			</column>
+			<column name="name" type="VARCHAR(255)" />
+			<column name="updated_date" type="VARCHAR(255)" />
+		</createTable>
+	</changeSet>
+	<changeSet author="CodeGeneration" id="create_generated_table_catalog_billing_discount" labels="version:">
+		<preConditions onFail="MARK_RAN">
+			<not>
+				<tableExists tableName="catalog_billing_discount" />
+			</not>
+		</preConditions>
+		<createTable tableName="catalog_billing_discount">
+			<column name="id" type="${UUID}">
+				<constraints nullable="false" primaryKey="true"/>
+			</column>
+			<column name="created_date" type="VARCHAR(255)" >
+				<constraints nullable="false"/>
+			</column>
+			<column name="description" type="VARCHAR(255)" />
+			<column name="entity_type" type="VARCHAR(255)" >
+				<constraints nullable="false"/>
+			</column>
+			<column name="is_deleted" type="${BOOLEAN_VALUE}" >
+				<constraints nullable="false"/>
+			</column>
+			<column name="name" type="VARCHAR(255)" />
+			<column name="type" type="VARCHAR(255)" >
+				<constraints nullable="false"/>
+			</column>
+			<column name="unit_type" type="VARCHAR(255)" />
+			<column name="updated_date" type="VARCHAR(255)" />
+		</createTable>
+	</changeSet>
+	<changeSet author="CodeGeneration" id="create_generated_table_catalog_billing_discount_set" labels="version:">
+		<preConditions onFail="MARK_RAN">
+			<not>
+				<tableExists tableName="catalog_billing_discount_set" />
+			</not>
+		</preConditions>
+		<createTable tableName="catalog_billing_discount_set">
+			<column name="id" type="${UUID}">
+				<constraints nullable="false" primaryKey="true"/>
+			</column>
+			<column name="created_date" type="VARCHAR(255)" >
+				<constraints nullable="false"/>
+			</column>
+			<column name="description" type="VARCHAR(255)" />
+			<column name="is_deleted" type="${BOOLEAN_VALUE}" >
+				<constraints nullable="false"/>
+			</column>
+			<column name="name" type="VARCHAR(255)" />
+			<column name="updated_date" type="VARCHAR(255)" />
+		</createTable>
+	</changeSet>
+	<changeSet author="CodeGeneration" id="create_generated_table_catalog_billing_tax" labels="version:">
+		<preConditions onFail="MARK_RAN">
+			<not>
+				<tableExists tableName="catalog_billing_tax" />
+			</not>
+		</preConditions>
+		<createTable tableName="catalog_billing_tax">
+			<column name="id" type="${UUID}">
+				<constraints nullable="false" primaryKey="true"/>
+			</column>
+			<column name="created_date" type="VARCHAR(255)" >
+				<constraints nullable="false"/>
+			</column>
+			<column name="currency" type="VARCHAR(255)" />
+			<column name="description" type="VARCHAR(255)" />
+			<column name="is_deleted" type="${BOOLEAN_VALUE}" >
+				<constraints nullable="false"/>
+			</column>
+			<column name="name" type="VARCHAR(255)" />
+			<column name="updated_date" type="VARCHAR(255)" />
+			<column name="value_" type="decimal(10,2)" />
+		</createTable>
+	</changeSet>
+	<changeSet author="CodeGeneration" id="create_generated_table_catalog_billing_tax_set" labels="version:">
+		<preConditions onFail="MARK_RAN">
+			<not>
+				<tableExists tableName="catalog_billing_tax_set" />
+			</not>
+		</preConditions>
+		<createTable tableName="catalog_billing_tax_set">
+			<column name="id" type="${UUID}">
+				<constraints nullable="false" primaryKey="true"/>
+			</column>
+			<column name="created_date" type="VARCHAR(255)" >
+				<constraints nullable="false"/>
+			</column>
+			<column name="description" type="VARCHAR(255)" />
+			<column name="is_deleted" type="${BOOLEAN_VALUE}" >
+				<constraints nullable="false"/>
+			</column>
+			<column name="name" type="VARCHAR(255)" />
+			<column name="updated_date" type="VARCHAR(255)" />
+		</createTable>
+	</changeSet>
+	<changeSet author="CodeGeneration" id="create_generated_table_catalog_calendar" labels="version:">
+		<preConditions onFail="MARK_RAN">
+			<not>
+				<tableExists tableName="catalog_calendar" />
+			</not>
+		</preConditions>
+		<createTable tableName="catalog_calendar">
+			<column name="id" type="${UUID}">
+				<constraints nullable="false" primaryKey="true"/>
+			</column>
+			<column name="created_date" type="VARCHAR(255)" >
+				<constraints nullable="false"/>
+			</column>
+			<column name="description" type="VARCHAR(255)" />
+			<column name="is_deleted" type="${BOOLEAN_VALUE}" >
+				<constraints nullable="false"/>
+			</column>
+			<column name="name" type="VARCHAR(255)" >
+				<constraints nullable="false"/>
+			</column>
+			<column name="realm" type="VARCHAR(255)" >
+				<constraints nullable="false"/>
+			</column>
+			<column name="updated_date" type="VARCHAR(255)" />
+			<column name="version" type="bigint" />
+		</createTable>
+	</changeSet>
+	<changeSet author="CodeGeneration" id="create_generated_table_catalog_calendar_properties" labels="version:">
+		<preConditions onFail="MARK_RAN">
+			<not>
+				<tableExists tableName="catalog_calendar_properties" />
+			</not>
+		</preConditions>
+		<createTable tableName="catalog_calendar_properties">
+			<column name="id" type="${UUID}">
+				<constraints nullable="false" primaryKey="true"/>
+			</column>
+			<column name="catalog_calendar_id" type="VARCHAR(255)" >
+				<constraints nullable="false"/>
+			</column>
+			<column name="color" type="VARCHAR(255)" />
+			<column name="created_date" type="VARCHAR(255)" >
+				<constraints nullable="false"/>
+			</column>
+			<column name="description" type="VARCHAR(255)" />
+			<column name="dom_from" type="int" >
+				<constraints nullable="false"/>
+			</column>
+			<column name="dom_to" type="int" />
+			<column name="dow_from" type="int" >
+				<constraints nullable="false"/>
+			</column>
+			<column name="dow_to" type="int" />
+			<column name="is_deleted" type="${BOOLEAN_VALUE}" >
+				<constraints nullable="false"/>
+			</column>
+			<column name="month_from" type="int" >
+				<constraints nullable="false"/>
+			</column>
+			<column name="month_to" type="int" />
+			<column name="name" type="VARCHAR(255)" >
+				<constraints nullable="false"/>
+			</column>
+			<column name="special" type="${BOOLEAN_VALUE}" />
+			<column name="time_from" type="VARCHAR(255)" />
+			<column name="time_to" type="VARCHAR(255)" />
+			<column name="updated_date" type="VARCHAR(255)" />
+			<column name="version" type="bigint" />
+			<column name="year_from" type="int" >
+				<constraints nullable="false"/>
+			</column>
+			<column name="year_to" type="int" />
+		</createTable>
+	</changeSet>
+	<changeSet author="CodeGeneration" id="create_generated_table_catalog_custom_list" labels="version:">
+		<preConditions onFail="MARK_RAN">
+			<not>
+				<tableExists tableName="catalog_custom_list" />
+			</not>
+		</preConditions>
+		<createTable tableName="catalog_custom_list">
+			<column name="id" type="${UUID}">
+				<constraints nullable="false" primaryKey="true"/>
+			</column>
+			<column name="created_date" type="VARCHAR(255)" >
+				<constraints nullable="false"/>
+			</column>
+			<column name="description" type="VARCHAR(255)" />
+			<column name="is_deleted" type="${BOOLEAN_VALUE}" >
+				<constraints nullable="false"/>
+			</column>
+			<column name="list" type="${JSON_OBJECT}"/>
+			<column name="name" type="VARCHAR(255)" >
+				<constraints nullable="false"/>
+			</column>
+			<column name="realm" type="VARCHAR(255)" >
+				<constraints nullable="false"/>
+			</column>
+			<column name="updated_date" type="VARCHAR(255)" />
+		</createTable>
+	</changeSet>
+	<changeSet author="CodeGeneration" id="create_generated_table_catalog_layout" labels="version:">
+		<preConditions onFail="MARK_RAN">
+			<not>
+				<tableExists tableName="catalog_layout" />
+			</not>
+		</preConditions>
+		<createTable tableName="catalog_layout">
+			<column name="id" type="${UUID}">
+				<constraints nullable="false" primaryKey="true"/>
+			</column>
+			<column name="created_date" type="VARCHAR(255)" >
+				<constraints nullable="false"/>
+			</column>
+			<column name="description" type="VARCHAR(255)" />
+			<column name="is_deleted" type="${BOOLEAN_VALUE}" >
+				<constraints nullable="false"/>
+			</column>
+			<column name="is_individual" type="${BOOLEAN_VALUE}" >
+				<constraints nullable="false"/>
+			</column>
+			<column name="name" type="VARCHAR(255)" >
+				<constraints nullable="false"/>
+			</column>
+			<column name="rating_parameter_set_id" type="VARCHAR(255)" />
+			<column name="realm" type="VARCHAR(255)" >
+				<constraints nullable="false"/>
+			</column>
+			<column name="updated_date" type="VARCHAR(255)" />
+			<column name="version" type="bigint" />
+		</createTable>
+	</changeSet>
+	<changeSet author="CodeGeneration" id="create_generated_table_catalog_lcp_configuration" labels="version:">
+		<preConditions onFail="MARK_RAN">
+			<not>
+				<tableExists tableName="catalog_lcp_configuration" />
+			</not>
+		</preConditions>
+		<createTable tableName="catalog_lcp_configuration">
+			<column name="id" type="${UUID}">
+				<constraints nullable="false" primaryKey="true"/>
+			</column>
+			<column name="created_date" type="VARCHAR(255)" >
+				<constraints nullable="false"/>
+			</column>
+			<column name="description" type="VARCHAR(255)" />
+			<column name="entity_types" type="${JSON_OBJECT}"/>
+			<column name="is_deleted" type="${BOOLEAN_VALUE}" >
+				<constraints nullable="false"/>
+			</column>
+			<column name="lcp_template_id" type="VARCHAR(255)" >
+				<constraints nullable="false"/>
+			</column>
+			<column name="name" type="VARCHAR(255)" >
+				<constraints nullable="false"/>
+			</column>
+			<column name="updated_date" type="VARCHAR(255)" />
+		</createTable>
+	</changeSet>
+	<changeSet author="CodeGeneration" id="create_generated_table_catalog_lcp_template" labels="version:">
+		<preConditions onFail="MARK_RAN">
+			<not>
+				<tableExists tableName="catalog_lcp_template" />
+			</not>
+		</preConditions>
+		<createTable tableName="catalog_lcp_template">
+			<column name="id" type="${UUID}">
+				<constraints nullable="false" primaryKey="true"/>
+			</column>
+			<column name="created_date" type="VARCHAR(255)" >
+				<constraints nullable="false"/>
+			</column>
+			<column name="is_deleted" type="${BOOLEAN_VALUE}" >
+				<constraints nullable="false"/>
+			</column>
+			<column name="name" type="VARCHAR(255)" >
+				<constraints nullable="false"/>
+			</column>
+			<column name="updated_date" type="VARCHAR(255)" />
+		</createTable>
+	</changeSet>
+	<changeSet author="CodeGeneration" id="create_generated_table_catalog_limit" labels="version:">
+		<preConditions onFail="MARK_RAN">
+			<not>
+				<tableExists tableName="catalog_limit" />
+			</not>
+		</preConditions>
+		<createTable tableName="catalog_limit">
+			<column name="id" type="${UUID}">
+				<constraints nullable="false" primaryKey="true"/>
+			</column>
+			<column name="currency" type="VARCHAR(255)" >
+				<constraints nullable="false"/>
+			</column>
+			<column name="value_" type="bigint" >
+				<constraints nullable="false"/>
+			</column>
+		</createTable>
+	</changeSet>
+	<changeSet author="CodeGeneration" id="create_generated_table_catalog_offer_label" labels="version:">
+		<preConditions onFail="MARK_RAN">
+			<not>
+				<tableExists tableName="catalog_offer_label" />
+			</not>
+		</preConditions>
+		<createTable tableName="catalog_offer_label">
+			<column name="id" type="${UUID}">
+				<constraints nullable="false" primaryKey="true"/>
+			</column>
+			<column name="created_date" type="VARCHAR(255)" >
+				<constraints nullable="false"/>
+			</column>
+			<column name="description" type="VARCHAR(255)" />
+			<column name="is_deleted" type="${BOOLEAN_VALUE}" >
+				<constraints nullable="false"/>
+			</column>
+			<column name="name" type="VARCHAR(255)" >
+				<constraints nullable="false"/>
+			</column>
+			<column name="realm" type="VARCHAR(255)" >
+				<constraints nullable="false"/>
+			</column>
+			<column name="updated_date" type="VARCHAR(255)" />
+		</createTable>
+	</changeSet>
+	<changeSet author="CodeGeneration" id="create_generated_table_catalog_offer_label_dto" labels="version:">
+		<preConditions onFail="MARK_RAN">
+			<not>
+				<tableExists tableName="catalog_offer_label_dto" />
+			</not>
+		</preConditions>
+		<createTable tableName="catalog_offer_label_dto">
+			<column name="id" type="${UUID}">
+				<constraints nullable="false" primaryKey="true"/>
+			</column>
+			<column name="description" type="VARCHAR(255)" />
+			<column name="name" type="VARCHAR(255)" >
+				<constraints nullable="false"/>
+			</column>
+			<column name="realm" type="VARCHAR(255)" >
+				<constraints nullable="false"/>
+			</column>
+		</createTable>
+	</changeSet>
+	<changeSet author="CodeGeneration" id="create_generated_table_catalog_offer_price" labels="version:">
+		<preConditions onFail="MARK_RAN">
+			<not>
+				<tableExists tableName="catalog_offer_price" />
+			</not>
+		</preConditions>
+		<createTable tableName="catalog_offer_price">
+			<column name="id" type="${UUID}">
+				<constraints nullable="false" primaryKey="true"/>
+			</column>
+			<column name="currency_id" type="VARCHAR(255)" >
+				<constraints nullable="false"/>
+			</column>
+			<column name="realm" type="VARCHAR(255)" >
+				<constraints nullable="false"/>
+			</column>
+			<column name="value_" type="bigint" >
+				<constraints nullable="false"/>
+			</column>
+		</createTable>
+	</changeSet>
+	<changeSet author="CodeGeneration" id="create_generated_table_catalog_offer_term" labels="version:">
+		<preConditions onFail="MARK_RAN">
+			<not>
+				<tableExists tableName="catalog_offer_term" />
+			</not>
+		</preConditions>
+		<createTable tableName="catalog_offer_term">
+			<column name="id" type="${UUID}">
+				<constraints nullable="false" primaryKey="true"/>
+			</column>
+			<column name="allowance" type="bigint" />
+			<column name="allowance_renewal_strategy" type="VARCHAR(255)" >
+				<constraints nullable="false"/>
+			</column>
+			<column name="currency_id" type="VARCHAR(255)" />
+			<column name="effective_date_from" type="datetime" >
+				<constraints nullable="false"/>
+			</column>
+			<column name="effective_date_to" type="datetime" />
+			<column name="expiration_period" type="VARCHAR(255)" />
+			<column name="is_remove_after_balance_depletion" type="${BOOLEAN_VALUE}" >
+				<constraints nullable="false"/>
+			</column>
+			<column name="offer_priority" type="int" >
+				<constraints nullable="false"/>
+			</column>
+			<column name="offer_renewal_strategy" type="VARCHAR(255)" >
+				<constraints nullable="false"/>
+			</column>
+			<column name="realm" type="VARCHAR(255)" >
+				<constraints nullable="false"/>
+			</column>
+			<column name="recurring_type" type="VARCHAR(255)" />
+			<column name="tariff_plan_id" type="VARCHAR(255)" />
+			<column name="type" type="VARCHAR(255)" >
+				<constraints nullable="false"/>
+			</column>
+		</createTable>
+	</changeSet>
+	<changeSet author="CodeGeneration" id="create_generated_table_catalog_offer_term_dto" labels="version:">
+		<preConditions onFail="MARK_RAN">
+			<not>
+				<tableExists tableName="catalog_offer_term_dto" />
+			</not>
+		</preConditions>
+		<createTable tableName="catalog_offer_term_dto">
+			<column name="id" type="${UUID}">
+				<constraints nullable="false" primaryKey="true"/>
+			</column>
+			<column name="allowance" type="bigint" />
+			<column name="allowance_renewal_strategy" type="VARCHAR(255)" >
+				<constraints nullable="false"/>
+			</column>
+			<column name="effective_date_from" type="datetime" >
+				<constraints nullable="false"/>
+			</column>
+			<column name="effective_date_to" type="datetime" />
+			<column name="is_remove_after_balance_depletion" type="${BOOLEAN_VALUE}" >
+				<constraints nullable="false"/>
+			</column>
+			<column name="offer_priority" type="int" >
+				<constraints nullable="false"/>
+			</column>
+			<column name="offer_renewal_strategy" type="VARCHAR(255)" >
+				<constraints nullable="false"/>
+			</column>
+			<column name="realm" type="VARCHAR(255)" >
+				<constraints nullable="false"/>
+			</column>
+			<column name="recurring_type" type="VARCHAR(255)" />
+			<column name="tariff_plan_id" type="VARCHAR(255)" />
+			<column name="type" type="VARCHAR(255)" >
+				<constraints nullable="false"/>
+			</column>
+		</createTable>
+	</changeSet>
+	<changeSet author="CodeGeneration" id="create_generated_table_catalog_parameter_group" labels="version:">
+		<preConditions onFail="MARK_RAN">
+			<not>
+				<tableExists tableName="catalog_parameter_group" />
+			</not>
+		</preConditions>
+		<createTable tableName="catalog_parameter_group">
+			<column name="id" type="${UUID}">
+				<constraints nullable="false" primaryKey="true"/>
+			</column>
+			<column name="created_date" type="VARCHAR(255)" >
+				<constraints nullable="false"/>
+			</column>
+			<column name="description" type="VARCHAR(255)" />
+			<column name="is_deleted" type="${BOOLEAN_VALUE}" >
+				<constraints nullable="false"/>
+			</column>
+			<column name="name" type="VARCHAR(255)" >
+				<constraints nullable="false"/>
+			</column>
+			<column name="realm" type="VARCHAR(255)" >
+				<constraints nullable="false"/>
+			</column>
+			<column name="updated_date" type="VARCHAR(255)" />
+			<column name="values_" type="${JSON_OBJECT}"/>
+		</createTable>
+	</changeSet>
+	<changeSet author="CodeGeneration" id="create_generated_table_catalog_price_item" labels="version:">
+		<preConditions onFail="MARK_RAN">
+			<not>
+				<tableExists tableName="catalog_price_item" />
+			</not>
+		</preConditions>
+		<createTable tableName="catalog_price_item">
+			<column name="id" type="${UUID}">
+				<constraints nullable="false" primaryKey="true"/>
+			</column>
+			<column name="created_date" type="VARCHAR(255)" >
+				<constraints nullable="false"/>
+			</column>
+			<column name="currency_id" type="VARCHAR(255)" />
+			<column name="description" type="VARCHAR(255)" />
+			<column name="is_deleted" type="${BOOLEAN_VALUE}" >
+				<constraints nullable="false"/>
+			</column>
+			<column name="name" type="VARCHAR(255)" >
+				<constraints nullable="false"/>
+			</column>
+			<column name="realm" type="VARCHAR(255)" >
+				<constraints nullable="false"/>
+			</column>
+			<column name="updated_date" type="VARCHAR(255)" />
+			<column name="value_" type="bigint" >
+				<constraints nullable="false"/>
+			</column>
+			<column name="version" type="bigint" />
+		</createTable>
+	</changeSet>
+	<changeSet author="CodeGeneration" id="create_generated_table_catalog_product" labels="version:">
+		<preConditions onFail="MARK_RAN">
+			<not>
+				<tableExists tableName="catalog_product" />
+			</not>
+		</preConditions>
+		<createTable tableName="catalog_product">
+			<column name="id" type="${UUID}">
+				<constraints nullable="false" primaryKey="true"/>
+			</column>
+			<column name="created_date" type="VARCHAR(255)" >
+				<constraints nullable="false"/>
+			</column>
+			<column name="description" type="VARCHAR(255)" />
+			<column name="is_active" type="${BOOLEAN_VALUE}" >
+				<constraints nullable="false"/>
+			</column>
+			<column name="is_deleted" type="${BOOLEAN_VALUE}" >
+				<constraints nullable="false"/>
+			</column>
+			<column name="name" type="VARCHAR(255)" >
+				<constraints nullable="false"/>
+			</column>
+			<column name="provider_id" type="VARCHAR(255)" />
+			<column name="realm" type="VARCHAR(255)" >
+				<constraints nullable="false"/>
+			</column>
+			<column name="service_id" type="VARCHAR(255)" >
+				<constraints nullable="false"/>
+			</column>
+			<column name="updated_date" type="VARCHAR(255)" />
+		</createTable>
+	</changeSet>
+	<changeSet author="CodeGeneration" id="create_generated_table_catalog_product_dto" labels="version:">
+		<preConditions onFail="MARK_RAN">
+			<not>
+				<tableExists tableName="catalog_product_dto" />
+			</not>
+		</preConditions>
+		<createTable tableName="catalog_product_dto">
+			<column name="id" type="${UUID}">
+				<constraints nullable="false" primaryKey="true"/>
+			</column>
+			<column name="name" type="VARCHAR(255)" >
+				<constraints nullable="false"/>
+			</column>
+		</createTable>
+	</changeSet>
+	<changeSet author="CodeGeneration" id="create_generated_table_catalog_product_offering" labels="version:">
+		<preConditions onFail="MARK_RAN">
+			<not>
+				<tableExists tableName="catalog_product_offering" />
+			</not>
+		</preConditions>
+		<createTable tableName="catalog_product_offering">
+			<column name="id" type="${UUID}">
+				<constraints nullable="false" primaryKey="true"/>
+			</column>
+			<column name="cardinality" type="int" />
+			<column name="created_date" type="VARCHAR(255)" >
+				<constraints nullable="false"/>
+			</column>
+			<column name="custom_fields" type="VARCHAR(255)" />
+			<column name="description" type="VARCHAR(255)" />
+			<column name="is_deleted" type="${BOOLEAN_VALUE}" >
+				<constraints nullable="false"/>
+			</column>
+			<column name="is_individual" type="${BOOLEAN_VALUE}" >
+				<constraints nullable="false"/>
+			</column>
+			<column name="is_offered" type="${BOOLEAN_VALUE}" >
+				<constraints nullable="false"/>
+			</column>
+			<column name="is_primary" type="${BOOLEAN_VALUE}" >
+				<constraints nullable="false"/>
+			</column>
+			<column name="limit_" type="VARCHAR(255)" />
+			<column name="linked_offers" type="VARCHAR(255)" >
+				<constraints nullable="false"/>
+			</column>
+			<column name="name" type="VARCHAR(255)" >
+				<constraints nullable="false"/>
+			</column>
+			<column name="offer_term" type="VARCHAR(255)" />
+			<column name="periodic_balance_id" type="VARCHAR(255)" />
+			<column name="pool_plan_max_subscribers" type="int"/>
+			<column name="pool_plan_type" type="VARCHAR(255)"/>
+			<column name="price" type="VARCHAR(255)" />
+			<column name="product_id" type="VARCHAR(255)" />
+			<column name="realm" type="VARCHAR(255)" >
+				<constraints nullable="false"/>
+			</column>
+			<column name="type" type="VARCHAR(255)" >
+				<constraints nullable="false"/>
+			</column>
+			<column name="updated_date" type="VARCHAR(255)" />
+			<column name="usage_balance_id" type="VARCHAR(255)" />
+		</createTable>
+	</changeSet>
+	<changeSet author="CodeGeneration" id="create_generated_table_catalog_product_offering_dto" labels="version:">
+		<preConditions onFail="MARK_RAN">
+			<not>
+				<tableExists tableName="catalog_product_offering_dto" />
+			</not>
+		</preConditions>
+		<createTable tableName="catalog_product_offering_dto">
+			<column name="id" type="${UUID}">
+				<constraints nullable="false" primaryKey="true"/>
+			</column>
+			<column name="cardinality" type="int" />
+			<column name="created_date" type="VARCHAR(255)" >
+				<constraints nullable="false"/>
+			</column>
+			<column name="custom_fields" type="VARCHAR(255)" />
+			<column name="description" type="VARCHAR(255)" />
+			<column name="is_deleted" type="${BOOLEAN_VALUE}" >
+				<constraints nullable="false"/>
+			</column>
+			<column name="is_individual" type="${BOOLEAN_VALUE}" >
+				<constraints nullable="false"/>
+			</column>
+			<column name="is_offered" type="${BOOLEAN_VALUE}" >
+				<constraints nullable="false"/>
+			</column>
+			<column name="is_primary" type="${BOOLEAN_VALUE}" >
+				<constraints nullable="false"/>
+			</column>
+			<column name="limit_" type="VARCHAR(255)" />
+			<column name="linked_offers" type="VARCHAR(255)" >
+				<constraints nullable="false"/>
+			</column>
+			<column name="name" type="VARCHAR(255)" >
+				<constraints nullable="false"/>
+			</column>
+			<column name="offer_term" type="VARCHAR(255)" />
+			<column name="periodic_balance" type="VARCHAR(255)" />
+			<column name="price" type="VARCHAR(255)" />
+			<column name="product_id" type="VARCHAR(255)" />
+			<column name="realm" type="VARCHAR(255)" >
+				<constraints nullable="false"/>
+			</column>
+			<column name="type" type="VARCHAR(255)" >
+				<constraints nullable="false"/>
+			</column>
+			<column name="updated_date" type="VARCHAR(255)" />
+			<column name="usage_balance" type="VARCHAR(255)" />
+		</createTable>
+	</changeSet>
+	<changeSet author="CodeGeneration" id="create_generated_table_catalog_provider" labels="version:">
+		<preConditions onFail="MARK_RAN">
+			<not>
+				<tableExists tableName="catalog_provider" />
+			</not>
+		</preConditions>
+		<createTable tableName="catalog_provider">
+			<column name="id" type="${UUID}">
+				<constraints nullable="false" primaryKey="true"/>
+			</column>
+			<column name="alias" type="VARCHAR(255)" />
+			<column name="codes" type="${JSON_OBJECT}"/>
+			<column name="created_date" type="VARCHAR(255)" >
+				<constraints nullable="false"/>
+			</column>
+			<column name="is_default" type="${BOOLEAN_VALUE}" >
+				<constraints nullable="false"/>
+			</column>
+			<column name="is_deleted" type="${BOOLEAN_VALUE}" >
+				<constraints nullable="false"/>
+			</column>
+			<column name="name" type="VARCHAR(255)" >
+				<constraints nullable="false"/>
+			</column>
+			<column name="realm" type="VARCHAR(255)" >
+				<constraints nullable="false"/>
+			</column>
+			<column name="updated_date" type="VARCHAR(255)" />
+		</createTable>
+	</changeSet>
+	<changeSet author="CodeGeneration" id="create_generated_table_catalog_rating_parameter" labels="version:">
+		<preConditions onFail="MARK_RAN">
+			<not>
+				<tableExists tableName="catalog_rating_parameter" />
+			</not>
+		</preConditions>
+		<createTable tableName="catalog_rating_parameter">
+			<column name="id" type="${UUID}">
+				<constraints nullable="false" primaryKey="true"/>
+			</column>
+			<column name="created_date" type="VARCHAR(255)" >
+				<constraints nullable="false"/>
+			</column>
+			<column name="custom_list" type="VARCHAR(255)" />
+			<column name="description" type="VARCHAR(255)" />
+			<column name="is_deleted" type="${BOOLEAN_VALUE}" >
+				<constraints nullable="false"/>
+			</column>
+			<column name="name" type="VARCHAR(255)" >
+				<constraints nullable="false"/>
+			</column>
+			<column name="realm" type="VARCHAR(255)" >
+				<constraints nullable="false"/>
+			</column>
+			<column name="updated_date" type="VARCHAR(255)" />
+		</createTable>
+	</changeSet>
+	<changeSet author="CodeGeneration" id="create_generated_table_catalog_rating_parameter_set" labels="version:">
+		<preConditions onFail="MARK_RAN">
+			<not>
+				<tableExists tableName="catalog_rating_parameter_set" />
+			</not>
+		</preConditions>
+		<createTable tableName="catalog_rating_parameter_set">
+			<column name="id" type="${UUID}">
+				<constraints nullable="false" primaryKey="true"/>
+			</column>
+			<column name="created_date" type="VARCHAR(255)" >
+				<constraints nullable="false"/>
+			</column>
+			<column name="description" type="VARCHAR(255)" />
+			<column name="is_deleted" type="${BOOLEAN_VALUE}" >
+				<constraints nullable="false"/>
+			</column>
+			<column name="name" type="VARCHAR(255)" >
+				<constraints nullable="false"/>
+			</column>
+			<column name="realm" type="VARCHAR(255)" >
+				<constraints nullable="false"/>
+			</column>
+			<column name="updated_date" type="VARCHAR(255)" />
+		</createTable>
+	</changeSet>
+	<changeSet author="CodeGeneration" id="create_generated_table_catalog_recurring_type" labels="version:">
+		<preConditions onFail="MARK_RAN">
+			<not>
+				<tableExists tableName="catalog_recurring_type" />
+			</not>
+		</preConditions>
+		<createTable tableName="catalog_recurring_type">
+			<column name="id" type="${UUID}">
+				<constraints nullable="false" primaryKey="true"/>
+			</column>
+			<column name="is_calendar" type="${BOOLEAN_VALUE}" >
+				<constraints nullable="false"/>
+			</column>
+			<column name="is_prorated" type="${BOOLEAN_VALUE}" >
+				<constraints nullable="false"/>
+			</column>
+			<column name="realm" type="VARCHAR(255)" >
+				<constraints nullable="false"/>
+			</column>
+			<column name="type" type="VARCHAR(255)" >
+				<constraints nullable="false"/>
+			</column>
+			<column name="units" type="bigint" >
+				<constraints nullable="false"/>
+			</column>
+			<column name="value_" type="bigint" >
+				<constraints nullable="false"/>
+			</column>
+		</createTable>
+	</changeSet>
+	<changeSet author="CodeGeneration" id="create_generated_table_catalog_service" labels="version:">
+		<preConditions onFail="MARK_RAN">
+			<not>
+				<tableExists tableName="catalog_service" />
+			</not>
+		</preConditions>
+		<createTable tableName="catalog_service">
+			<column name="id" type="${UUID}">
+				<constraints nullable="false" primaryKey="true"/>
+			</column>
+			<column name="created_date" type="VARCHAR(255)" >
+				<constraints nullable="false"/>
+			</column>
+			<column name="is_deleted" type="${BOOLEAN_VALUE}" >
+				<constraints nullable="false"/>
+			</column>
+			<column name="name" type="VARCHAR(255)" >
+				<constraints nullable="false"/>
+			</column>
+			<column name="realm" type="VARCHAR(255)" >
+				<constraints nullable="false"/>
+			</column>
+			<column name="updated_date" type="VARCHAR(255)" />
+		</createTable>
+	</changeSet>
+	<changeSet author="CodeGeneration" id="create_generated_table_catalog_tariff" labels="version:">
+		<preConditions onFail="MARK_RAN">
+			<not>
+				<tableExists tableName="catalog_tariff" />
+			</not>
+		</preConditions>
+		<createTable tableName="catalog_tariff">
+			<column name="id" type="${UUID}">
+				<constraints nullable="false" primaryKey="true"/>
+			</column>
+			<column name="created_date" type="VARCHAR(255)" >
+				<constraints nullable="false"/>
+			</column>
+			<column name="description" type="VARCHAR(255)" />
+			<column name="is_adaptive" type="${BOOLEAN_VALUE}" />
+			<column name="is_deleted" type="${BOOLEAN_VALUE}" >
+				<constraints nullable="false"/>
+			</column>
+			<column name="is_individual" type="${BOOLEAN_VALUE}" >
+				<constraints nullable="false"/>
+			</column>
+			<column name="is_system" type="${BOOLEAN_VALUE}" >
+				<constraints nullable="false"/>
+			</column>
+			<column name="name" type="VARCHAR(255)" >
+				<constraints nullable="false"/>
+			</column>
+			<column name="realm" type="VARCHAR(255)" >
+				<constraints nullable="false"/>
+			</column>
+			<column name="type" type="VARCHAR(255)" >
+				<constraints nullable="false"/>
+			</column>
+			<column name="updated_date" type="VARCHAR(255)" />
+			<column name="version" type="bigint" />
+		</createTable>
+	</changeSet>
+	<changeSet author="CodeGeneration" id="create_generated_table_catalog_tariff_plan" labels="version:">
+		<preConditions onFail="MARK_RAN">
+			<not>
+				<tableExists tableName="catalog_tariff_plan" />
+			</not>
+		</preConditions>
+		<createTable tableName="catalog_tariff_plan">
+			<column name="id" type="${UUID}">
+				<constraints nullable="false" primaryKey="true"/>
+			</column>
+			<column name="calendar_id" type="VARCHAR(255)" />
+			<column name="created_date" type="VARCHAR(255)" >
+				<constraints nullable="false"/>
+			</column>
+			<column name="description" type="VARCHAR(255)" />
+			<column name="is_deleted" type="${BOOLEAN_VALUE}" >
+				<constraints nullable="false"/>
+			</column>
+			<column name="is_individual" type="${BOOLEAN_VALUE}" >
+				<constraints nullable="false"/>
+			</column>
+			<column name="layout_id" type="VARCHAR(255)" >
+				<constraints nullable="false"/>
+			</column>
+			<column name="name" type="VARCHAR(255)" >
+				<constraints nullable="false"/>
+			</column>
+			<column name="ranges" type="${JSON_OBJECT}"/>
+			<column name="realm" type="VARCHAR(255)" >
+				<constraints nullable="false"/>
+			</column>
+			<column name="updated_date" type="VARCHAR(255)" />
+			<column name="version" type="bigint" />
+		</createTable>
+	</changeSet>
+	<changeSet author="CodeGeneration" id="create_generated_table_catalog_tariff_step" labels="version:">
+		<preConditions onFail="MARK_RAN">
+			<not>
+				<tableExists tableName="catalog_tariff_step" />
+			</not>
+		</preConditions>
+		<createTable tableName="catalog_tariff_step">
+			<column name="id" type="${UUID}">
+				<constraints nullable="false" primaryKey="true"/>
+			</column>
+			<column name="catalog_tariff" type="VARCHAR(255)" />
+			<column name="catalog_tariff_id" type="VARCHAR(255)" />
+			<column name="created_date" type="VARCHAR(255)" >
+				<constraints nullable="false"/>
+			</column>
+			<column name="currency_id" type="VARCHAR(255)" />
+			<column name="is_deleted" type="${BOOLEAN_VALUE}" >
+				<constraints nullable="false"/>
+			</column>
+			<column name="name" type="VARCHAR(255)" >
+				<constraints nullable="false"/>
+			</column>
+			<column name="next_step" type="int" />
+			<column name="price_item" type="VARCHAR(255)" >
+				<constraints nullable="false"/>
+			</column>
+			<column name="repetitions" type="int" />
+			<column name="step" type="int" >
+				<constraints nullable="false"/>
+			</column>
+			<column name="updated_date" type="VARCHAR(255)" />
+			<column name="value_" type="bigint" />
+			<column name="version" type="bigint" />
+		</createTable>
+	</changeSet>
+	<changeSet author="CodeGeneration" id="create_generated_table_catalog_zone" labels="version:">
+		<preConditions onFail="MARK_RAN">
+			<not>
+				<tableExists tableName="catalog_zone" />
+			</not>
+		</preConditions>
+		<createTable tableName="catalog_zone">
+			<column name="id" type="${UUID}">
+				<constraints nullable="false" primaryKey="true"/>
+			</column>
+			<column name="created_date" type="VARCHAR(255)" >
+				<constraints nullable="false"/>
+			</column>
+			<column name="description" type="VARCHAR(255)" />
+			<column name="is_deleted" type="${BOOLEAN_VALUE}" >
+				<constraints nullable="false"/>
+			</column>
+			<column name="is_system" type="${BOOLEAN_VALUE}" >
+				<constraints nullable="false"/>
+			</column>
+			<column name="layout" type="VARCHAR(255)" />
+			<column name="name" type="VARCHAR(255)" />
+			<column name="updated_date" type="VARCHAR(255)" />
+		</createTable>
+	</changeSet>
+	<changeSet author="CodeGeneration" id="create_generated_table_catalog_zone_set" labels="version:">
+		<preConditions onFail="MARK_RAN">
+			<not>
+				<tableExists tableName="catalog_zone_set" />
+			</not>
+		</preConditions>
+		<createTable tableName="catalog_zone_set">
+			<column name="id" type="${UUID}">
+				<constraints nullable="false" primaryKey="true"/>
+			</column>
+			<column name="created_date" type="VARCHAR(255)" >
+				<constraints nullable="false"/>
+			</column>
+			<column name="description" type="VARCHAR(255)" />
+			<column name="is_deleted" type="${BOOLEAN_VALUE}" >
+				<constraints nullable="false"/>
+			</column>
+			<column name="name" type="VARCHAR(255)" />
+			<column name="updated_date" type="VARCHAR(255)" />
+		</createTable>
+	</changeSet>
+	<changeSet author="CodeGeneration" id="create_generated_table_compatibility_set" labels="version:">
+		<preConditions onFail="MARK_RAN">
+			<not>
+				<tableExists tableName="compatibility_set" />
+			</not>
+		</preConditions>
+		<createTable tableName="compatibility_set">
+			<column name="id" type="${UUID}">
+				<constraints nullable="false" primaryKey="true"/>
+			</column>
+			<column name="created_date" type="VARCHAR(255)" >
+				<constraints nullable="false"/>
+			</column>
+			<column name="description" type="VARCHAR(255)" />
+			<column name="is_deleted" type="${BOOLEAN_VALUE}" >
+				<constraints nullable="false"/>
+			</column>
+			<column name="name" type="VARCHAR(255)" />
+			<column name="type" type="VARCHAR(255)" >
+				<constraints nullable="false"/>
+			</column>
+			<column name="updated_date" type="VARCHAR(255)" />
+		</createTable>
+	</changeSet>
+	<changeSet author="CodeGeneration" id="create_generated_table_currency" labels="version:">
+		<preConditions onFail="MARK_RAN">
+			<not>
+				<tableExists tableName="currency" />
+			</not>
+		</preConditions>
+		<createTable tableName="currency">
+			<column name="id" type="${UUID}">
+				<constraints nullable="false" primaryKey="true"/>
+			</column>
+			<column name="name" type="VARCHAR(255)" >
+				<constraints nullable="false"/>
+			</column>
+			<column name="type" type="VARCHAR(255)" >
+				<constraints nullable="false"/>
+			</column>
+		</createTable>
+	</changeSet>
+	<changeSet author="CodeGeneration" id="create_generated_table_custom_list_view" labels="version:">
+		<preConditions onFail="MARK_RAN">
+			<not>
+				<tableExists tableName="custom_list_view" />
+			</not>
+		</preConditions>
+		<createTable tableName="custom_list_view">
+			<column name="id" type="${UUID}">
+				<constraints nullable="false" primaryKey="true"/>
+			</column>
+			<column name="description" type="VARCHAR(255)" />
+			<column name="name" type="VARCHAR(255)" >
+				<constraints nullable="false"/>
+			</column>
+		</createTable>
+	</changeSet>
+	<changeSet author="CodeGeneration" id="create_generated_table_discount_step" labels="version:">
+		<preConditions onFail="MARK_RAN">
+			<not>
+				<tableExists tableName="discount_step" />
+			</not>
+		</preConditions>
+		<createTable tableName="discount_step">
+			<column name="id" type="${UUID}">
+				<constraints nullable="false" primaryKey="true"/>
+			</column>
+			<column name="currency" type="VARCHAR(255)" />
+			<column name="discount" type="VARCHAR(255)" />
+			<column name="from_" type="decimal(10,2)" />
+			<column name="to_" type="decimal(10,2)" />
+			<column name="value_" type="decimal(10,2)" />
+		</createTable>
+	</changeSet>
+	<changeSet author="CodeGeneration" id="create_generated_table_eligibility_set" labels="version:">
+		<preConditions onFail="MARK_RAN">
+			<not>
+				<tableExists tableName="eligibility_set" />
+			</not>
+		</preConditions>
+		<createTable tableName="eligibility_set">
+			<column name="id" type="${UUID}">
+				<constraints nullable="false" primaryKey="true"/>
+			</column>
+			<column name="condition_" type="VARCHAR(255)" >
+				<constraints nullable="false"/>
+			</column>
+			<column name="created_date" type="VARCHAR(255)" >
+				<constraints nullable="false"/>
+			</column>
+			<column name="description" type="VARCHAR(255)" >
+				<constraints nullable="false"/>
+			</column>
+			<column name="expression" type="VARCHAR(255)" />
+			<column name="is_deleted" type="${BOOLEAN_VALUE}" >
+				<constraints nullable="false"/>
+			</column>
+			<column name="name" type="VARCHAR(255)" >
+				<constraints nullable="false"/>
+			</column>
+			<column name="schema_id" type="VARCHAR(255)" />
+			<column name="updated_date" type="VARCHAR(255)" />
+		</createTable>
+	</changeSet>
+	<changeSet author="CodeGeneration" id="create_generated_table_eligibility_set_schema" labels="version:">
+		<preConditions onFail="MARK_RAN">
+			<not>
+				<tableExists tableName="eligibility_set_schema" />
+			</not>
+		</preConditions>
+		<createTable tableName="eligibility_set_schema">
+			<column name="id" type="${UUID}">
+				<constraints nullable="false" primaryKey="true"/>
+			</column>
+			<column name="created_date" type="VARCHAR(255)" >
+				<constraints nullable="false"/>
+			</column>
+			<column name="is_deleted" type="${BOOLEAN_VALUE}" >
+				<constraints nullable="false"/>
+			</column>
+			<column name="is_system" type="${BOOLEAN_VALUE}" >
+				<constraints nullable="false"/>
+			</column>
+			<column name="schema" type="VARCHAR(255)" >
+				<constraints nullable="false"/>
+			</column>
+			<column name="updated_date" type="VARCHAR(255)" />
+		</createTable>
+	</changeSet>
+	<changeSet author="CodeGeneration" id="create_generated_table_exchange_rate" labels="version:">
+		<preConditions onFail="MARK_RAN">
+			<not>
+				<tableExists tableName="exchange_rate" />
+			</not>
+		</preConditions>
+		<createTable tableName="exchange_rate">
+			<column name="id" type="${UUID}">
+				<constraints nullable="false" primaryKey="true"/>
+			</column>
+			<column name="created_date" type="VARCHAR(255)" >
+				<constraints nullable="false"/>
+			</column>
+			<column name="currency_id" type="VARCHAR(255)" >
+				<constraints nullable="false"/>
+			</column>
+			<column name="effective_date_from" type="datetime" />
+			<column name="effective_date_to" type="datetime" />
+			<column name="is_deleted" type="${BOOLEAN_VALUE}" >
+				<constraints nullable="false"/>
+			</column>
+			<column name="provider_id" type="VARCHAR(255)" />
+			<column name="rate" type="bigint" >
+				<constraints nullable="false"/>
+			</column>
+			<column name="realm" type="VARCHAR(255)" >
+				<constraints nullable="false"/>
+			</column>
+			<column name="updated_date" type="VARCHAR(255)" />
+		</createTable>
+	</changeSet>
+	<changeSet author="CodeGeneration" id="create_generated_table_expiration_period" labels="version:">
+		<preConditions onFail="MARK_RAN">
+			<not>
+				<tableExists tableName="expiration_period" />
+			</not>
+		</preConditions>
+		<createTable tableName="expiration_period">
+			<column name="id" type="${UUID}">
+				<constraints nullable="false" primaryKey="true"/>
+			</column>
+			<column name="realm" type="VARCHAR(255)" >
+				<constraints nullable="false"/>
+			</column>
+			<column name="type" type="VARCHAR(255)" >
+				<constraints nullable="false"/>
+			</column>
+			<column name="units" type="int" >
+				<constraints nullable="false"/>
+			</column>
+		</createTable>
+	</changeSet>
+	<changeSet author="CodeGeneration" id="create_generated_table_external_lcp_template_dto" labels="version:">
+		<preConditions onFail="MARK_RAN">
+			<not>
+				<tableExists tableName="external_lcp_template_dto" />
+			</not>
+		</preConditions>
+		<createTable tableName="external_lcp_template_dto">
+			<column name="id" type="${UUID}">
+				<constraints nullable="false" primaryKey="true"/>
+			</column>
+			<column name="name" type="VARCHAR(255)" >
+				<constraints nullable="false"/>
+			</column>
+			<column name="states" type="${JSON_OBJECT}"/>
+		</createTable>
+	</changeSet>
+	<changeSet author="CodeGeneration" id="create_generated_table_individual_nested_offer_dto" labels="version:">
+		<preConditions onFail="MARK_RAN">
+			<not>
+				<tableExists tableName="individual_nested_offer_dto" />
+			</not>
+		</preConditions>
+		<createTable tableName="individual_nested_offer_dto">
+			<column name="id" type="${UUID}">
+				<constraints nullable="false" primaryKey="true"/>
+			</column>
+			<column name="allowance" type="decimal(10,2)" />
+			<column name="allowance_renewal_strategy" type="VARCHAR(255)" />
+			<column name="currency" type="VARCHAR(255)" />
+			<column name="custom_fields" type="VARCHAR(255)" />
+			<column name="limit__currency" type="VARCHAR(255)"/>
+			<column name="limit__value_" type="decimal(10,2)"/>
+			<column name="pool_plan_max_subscribers" type="int"/>
+			<column name="pool_plan_type" type="VARCHAR(255)"/>
+			<column name="seniority" type="int" />
+			<column name="usage_balance_id" type="VARCHAR(255)" />
+		</createTable>
+	</changeSet>
+	<changeSet author="CodeGeneration" id="create_generated_table_individual_offer_dto" labels="version:">
+		<preConditions onFail="MARK_RAN">
+			<not>
+				<tableExists tableName="individual_offer_dto" />
+			</not>
+		</preConditions>
+		<createTable tableName="individual_offer_dto">
+			<column name="id" type="${UUID}">
+				<constraints nullable="false" primaryKey="true"/>
+			</column>
+			<column name="cardinality" type="int" />
+			<column name="custom_fields" type="VARCHAR(255)" />
+			<column name="description" type="VARCHAR(255)" />
+			<column name="individual_eligibility_customer_account_id" type="VARCHAR(255)"/>
+			<column name="individual_eligibility_plan_type" type="VARCHAR(255)"/>
+			<column name="limit__currency" type="VARCHAR(255)"/>
+			<column name="limit__value_" type="decimal(10,2)"/>
+			<column name="linked_offers" type="VARCHAR(255)" />
+			<column name="name" type="VARCHAR(255)" />
+			<column name="offer_template_id" type="VARCHAR(255)" >
+				<constraints nullable="false"/>
+			</column>
+			<column name="offer_term_allowance" type="decimal(10,2)"/>
+			<column name="offer_term_allowance_renewal_strategy" type="VARCHAR(255)"/>
+			<column name="offer_term_currency" type="VARCHAR(255)"/>
+			<column name="offer_term_effective_date_from" type="VARCHAR(255)"/>
+			<column name="offer_term_effective_date_to" type="VARCHAR(255)"/>
+			<column name="offer_term_is_remove_after_balance_depletion" type="${BOOLEAN_VALUE}"/>
+			<column name="offer_term_offer_renewal_strategy" type="VARCHAR(255)"/>
+			<column name="offer_term_priority" type="int"/>
+			<column name="offer_term_recurring_type_is_calendar" type="${BOOLEAN_VALUE}"/>
+			<column name="offer_term_recurring_type_is_prorated" type="${BOOLEAN_VALUE}"/>
+			<column name="offer_term_recurring_type_type" type="VARCHAR(255)"/>
+			<column name="offer_term_recurring_type_units" type="bigint"/>
+			<column name="offer_term_recurring_type_value_" type="bigint"/>
+			<column name="periodic_balance_id" type="VARCHAR(255)" />
+			<column name="pool_plan_max_subscribers" type="int"/>
+			<column name="pool_plan_type" type="VARCHAR(255)"/>
+			<column name="price_currency" type="VARCHAR(255)"/>
+			<column name="price_value_" type="decimal(10,2)"/>
+			<column name="usage_balance_id" type="VARCHAR(255)" />
+		</createTable>
+	</changeSet>
+	<changeSet author="CodeGeneration" id="create_generated_table_layout_group_item" labels="version:">
+		<preConditions onFail="MARK_RAN">
+			<not>
+				<tableExists tableName="layout_group_item" />
+			</not>
+		</preConditions>
+		<createTable tableName="layout_group_item">
+			<column name="id" type="${UUID}">
+				<constraints nullable="false" primaryKey="true"/>
+			</column>
+			<column name="position" type="int" >
+				<constraints nullable="false"/>
+			</column>
+			<column name="tags" type="${JSON_OBJECT}"/>
+		</createTable>
+	</changeSet>
+	<changeSet author="CodeGeneration" id="create_generated_table_layout_parameter_item" labels="version:">
+		<preConditions onFail="MARK_RAN">
+			<not>
+				<tableExists tableName="layout_parameter_item" />
+			</not>
+		</preConditions>
+		<createTable tableName="layout_parameter_item">
+			<column name="id" type="${UUID}">
+				<constraints nullable="false" primaryKey="true"/>
+			</column>
+			<column name="parameter_group_name" type="VARCHAR(255)" />
+			<column name="value_" type="VARCHAR(255)" >
+				<constraints nullable="false"/>
+			</column>
+		</createTable>
+	</changeSet>
+	<changeSet author="CodeGeneration" id="create_generated_table_layout_parameter_item_dto" labels="version:">
+		<preConditions onFail="MARK_RAN">
+			<not>
+				<tableExists tableName="layout_parameter_item_dto" />
+			</not>
+		</preConditions>
+		<createTable tableName="layout_parameter_item_dto">
+			<column name="id" type="${UUID}">
+				<constraints nullable="false" primaryKey="true"/>
+			</column>
+			<column name="parameter_group_name" type="VARCHAR(255)" />
+			<column name="value_" type="VARCHAR(255)" >
+				<constraints nullable="false"/>
+			</column>
+		</createTable>
+	</changeSet>
+	<changeSet author="CodeGeneration" id="create_generated_table_layout_rating_parameters" labels="version:">
+		<preConditions onFail="MARK_RAN">
+			<not>
+				<tableExists tableName="layout_rating_parameters" />
+			</not>
+		</preConditions>
+		<createTable tableName="layout_rating_parameters">
+			<column name="id" type="${UUID}">
+				<constraints nullable="false" primaryKey="true"/>
+			</column>
+			<column name="created_date" type="VARCHAR(255)" >
+				<constraints nullable="false"/>
+			</column>
+			<column name="group_" type="VARCHAR(255)" />
+			<column name="is_deleted" type="${BOOLEAN_VALUE}" >
+				<constraints nullable="false"/>
+			</column>
+			<column name="position" type="int" >
+				<constraints nullable="false"/>
+			</column>
+			<column name="tags" type="${JSON_OBJECT}"/>
+			<column name="updated_date" type="VARCHAR(255)" />
+		</createTable>
+	</changeSet>
+	<changeSet author="CodeGeneration" id="create_generated_table_layout_rating_parameters_group" labels="version:">
+		<preConditions onFail="MARK_RAN">
+			<not>
+				<tableExists tableName="layout_rating_parameters_group" />
+			</not>
+		</preConditions>
+		<createTable tableName="layout_rating_parameters_group">
+			<column name="id" type="${UUID}">
+				<constraints nullable="false" primaryKey="true"/>
+			</column>
+			<column name="created_date" type="VARCHAR(255)" >
+				<constraints nullable="false"/>
+			</column>
+			<column name="is_deleted" type="${BOOLEAN_VALUE}" >
+				<constraints nullable="false"/>
+			</column>
+			<column name="name" type="VARCHAR(255)" >
+				<constraints nullable="false"/>
+			</column>
+			<column name="updated_date" type="VARCHAR(255)" />
+		</createTable>
+	</changeSet>
+	<changeSet author="CodeGeneration" id="create_generated_table_layout_rating_parameters_group_view" labels="version:">
+		<preConditions onFail="MARK_RAN">
+			<not>
+				<tableExists tableName="layout_rating_parameters_group_view" />
+			</not>
+		</preConditions>
+		<createTable tableName="layout_rating_parameters_group_view">
+			<column name="id" type="${UUID}">
+				<constraints nullable="false" primaryKey="true"/>
+			</column>
+			<column name="name" type="VARCHAR(255)" >
+				<constraints nullable="false"/>
+			</column>
+		</createTable>
+	</changeSet>
+	<changeSet author="CodeGeneration" id="create_generated_table_layout_rating_parameters_view" labels="version:">
+		<preConditions onFail="MARK_RAN">
+			<not>
+				<tableExists tableName="layout_rating_parameters_view" />
+			</not>
+		</preConditions>
+		<createTable tableName="layout_rating_parameters_view">
+			<column name="id" type="${UUID}">
+				<constraints nullable="false" primaryKey="true"/>
+			</column>
+			<column name="group_" type="VARCHAR(255)" />
+			<column name="parameters" type="${JSON_OBJECT}"/>
+			<column name="position" type="int" >
+				<constraints nullable="false"/>
+			</column>
+			<column name="tags" type="${JSON_OBJECT}"/>
+		</createTable>
+	</changeSet>
+	<changeSet author="CodeGeneration" id="create_generated_table_layout_view" labels="version:">
+		<preConditions onFail="MARK_RAN">
+			<not>
+				<tableExists tableName="layout_view" />
+			</not>
+		</preConditions>
+		<createTable tableName="layout_view">
+			<column name="id" type="${UUID}">
+				<constraints nullable="false" primaryKey="true"/>
+			</column>
+			<column name="description" type="VARCHAR(255)" />
+			<column name="name" type="VARCHAR(255)" >
+				<constraints nullable="false"/>
+			</column>
+			<column name="rating_parameter_set" type="VARCHAR(255)" />
+		</createTable>
+	</changeSet>
+	<changeSet author="CodeGeneration" id="create_generated_table_lcp_configuration_row" labels="version:">
+		<preConditions onFail="MARK_RAN">
+			<not>
+				<tableExists tableName="lcp_configuration_row" />
+			</not>
+		</preConditions>
+		<createTable tableName="lcp_configuration_row">
+			<column name="id" type="${UUID}">
+				<constraints nullable="false" primaryKey="true"/>
+			</column>
+			<column name="entity_id" type="VARCHAR(255)" />
+			<column name="lcp_configuration" type="VARCHAR(255)" />
+			<column name="position" type="int" >
+				<constraints nullable="false"/>
+			</column>
+			<column name="type_name" type="VARCHAR(255)"/>
+			<column name="type_required_id" type="${BOOLEAN_VALUE}"/>
+		</createTable>
+	</changeSet>
+	<changeSet author="CodeGeneration" id="create_generated_table_lcp_configuration_value" labels="version:">
+		<preConditions onFail="MARK_RAN">
+			<not>
+				<tableExists tableName="lcp_configuration_value" />
+			</not>
+		</preConditions>
+		<createTable tableName="lcp_configuration_value">
+			<column name="id" type="${UUID}">
+				<constraints nullable="false" primaryKey="true"/>
+			</column>
+			<column name="lcp_configuration_row" type="VARCHAR(255)" />
+			<column name="position" type="int" >
+				<constraints nullable="false"/>
+			</column>
+			<column name="state" type="VARCHAR(255)" >
+				<constraints nullable="false"/>
+			</column>
+			<column name="value_" type="${BOOLEAN_VALUE}" >
+				<constraints nullable="false"/>
+			</column>
+		</createTable>
+	</changeSet>
+	<changeSet author="CodeGeneration" id="create_generated_table_lcp_template_header" labels="version:">
+		<preConditions onFail="MARK_RAN">
+			<not>
+				<tableExists tableName="lcp_template_header" />
+			</not>
+		</preConditions>
+		<createTable tableName="lcp_template_header">
+			<column name="id" type="${UUID}">
+				<constraints nullable="false" primaryKey="true"/>
+			</column>
+			<column name="lcp_template" type="VARCHAR(255)" />
+			<column name="name" type="VARCHAR(255)" >
+				<constraints nullable="false"/>
+			</column>
+			<column name="position" type="int" >
+				<constraints nullable="false"/>
+			</column>
+		</createTable>
+	</changeSet>
+	<changeSet author="CodeGeneration" id="create_generated_table_lookup" labels="version:">
+		<preConditions onFail="MARK_RAN">
+			<not>
+				<tableExists tableName="lookup" />
+			</not>
+		</preConditions>
+		<createTable tableName="lookup">
+			<column name="id" type="${UUID}">
+				<constraints nullable="false" primaryKey="true"/>
+			</column>
+			<column name="effective_date_from" type="datetime" />
+			<column name="effective_date_to" type="datetime" />
+			<column name="group_id" type="VARCHAR(255)" />
+			<column name="is_deleted" type="${BOOLEAN_VALUE}" >
+				<constraints nullable="false"/>
+			</column>
+			<column name="key_" type="VARCHAR(255)" >
+				<constraints nullable="false"/>
+			</column>
+			<column name="key_name" type="VARCHAR(255)" />
+			<column name="module" type="VARCHAR(255)" >
+				<constraints nullable="false"/>
+			</column>
+			<column name="realm" type="VARCHAR(255)" >
+				<constraints nullable="false"/>
+			</column>
+			<column name="value_" type="VARCHAR(255)" >
+				<constraints nullable="false"/>
+			</column>
+		</createTable>
+	</changeSet>
+	<changeSet author="CodeGeneration" id="create_generated_table_nested_product_offering_dto" labels="version:">
+		<preConditions onFail="MARK_RAN">
+			<not>
+				<tableExists tableName="nested_product_offering_dto" />
+			</not>
+		</preConditions>
+		<createTable tableName="nested_product_offering_dto">
+			<column name="id" type="${UUID}">
+				<constraints nullable="false" primaryKey="true"/>
+			</column>
+			<column name="service_id" type="VARCHAR(255)" >
+				<constraints nullable="false"/>
+			</column>
+		</createTable>
+	</changeSet>
+	<changeSet author="CodeGeneration" id="create_generated_table_offer_data" labels="version:">
+		<preConditions onFail="MARK_RAN">
+			<not>
+				<tableExists tableName="offer_data" />
+			</not>
+		</preConditions>
+		<createTable tableName="offer_data">
+			<column name="id" type="${UUID}">
+				<constraints nullable="false" primaryKey="true"/>
+			</column>
+			<column name="name" type="VARCHAR(255)" >
+				<constraints nullable="false"/>
+			</column>
+		</createTable>
+	</changeSet>
+	<changeSet author="CodeGeneration" id="create_generated_table_offer_price_view" labels="version:">
+		<preConditions onFail="MARK_RAN">
+			<not>
+				<tableExists tableName="offer_price_view" />
+			</not>
+		</preConditions>
+		<createTable tableName="offer_price_view">
+			<column name="id" type="${UUID}">
+				<constraints nullable="false" primaryKey="true"/>
+			</column>
+			<column name="currency_id" type="VARCHAR(255)" >
+				<constraints nullable="false"/>
+			</column>
+			<column name="value_" type="bigint" >
+				<constraints nullable="false"/>
+			</column>
+		</createTable>
+	</changeSet>
+	<changeSet author="CodeGeneration" id="create_generated_table_offer_term_view" labels="version:">
+		<preConditions onFail="MARK_RAN">
+			<not>
+				<tableExists tableName="offer_term_view" />
+			</not>
+		</preConditions>
+		<createTable tableName="offer_term_view">
+			<column name="id" type="${UUID}">
+				<constraints nullable="false" primaryKey="true"/>
+			</column>
+			<column name="allowance" type="bigint" />
+			<column name="allowance_currency" type="VARCHAR(255)" />
+			<column name="allowance_renewal_strategy" type="VARCHAR(255)" >
+				<constraints nullable="false"/>
+			</column>
+			<column name="effective_date_from" type="datetime" >
+				<constraints nullable="false"/>
+			</column>
+			<column name="effective_date_to" type="datetime" />
+			<column name="expiration_period_type" type="VARCHAR(255)" />
+			<column name="expiration_period_units" type="int" />
+			<column name="offer_priority" type="int" >
+				<constraints nullable="false"/>
+			</column>
+			<column name="offer_renewal_strategy" type="VARCHAR(255)" >
+				<constraints nullable="false"/>
+			</column>
+			<column name="recurring_type" type="VARCHAR(255)" />
+			<column name="tariff_plan" type="VARCHAR(255)" />
+			<column name="type" type="VARCHAR(255)" >
+				<constraints nullable="false"/>
+			</column>
+		</createTable>
+	</changeSet>
+	<changeSet author="CodeGeneration" id="create_generated_table_price_item_view" labels="version:">
+		<preConditions onFail="MARK_RAN">
+			<not>
+				<tableExists tableName="price_item_view" />
+			</not>
+		</preConditions>
+		<createTable tableName="price_item_view">
+			<column name="id" type="${UUID}">
+				<constraints nullable="false" primaryKey="true"/>
+			</column>
+			<column name="currency_id" type="VARCHAR(255)" />
+			<column name="description" type="VARCHAR(255)" />
+			<column name="name" type="VARCHAR(255)" >
+				<constraints nullable="false"/>
+			</column>
+			<column name="value_" type="bigint" >
+				<constraints nullable="false"/>
+			</column>
+		</createTable>
+	</changeSet>
+	<changeSet author="CodeGeneration" id="create_generated_table_product_offering_view" labels="version:">
+		<preConditions onFail="MARK_RAN">
+			<not>
+				<tableExists tableName="product_offering_view" />
+			</not>
+		</preConditions>
+		<createTable tableName="product_offering_view">
+			<column name="id" type="${UUID}">
+				<constraints nullable="false" primaryKey="true"/>
+			</column>
+			<column name="cardinality" type="int" />
+			<column name="custom_fields" type="VARCHAR(255)" />
+			<column name="description" type="VARCHAR(255)" />
+			<column name="is_offered" type="${BOOLEAN_VALUE}" >
+				<constraints nullable="false"/>
+			</column>
+			<column name="is_primary" type="${BOOLEAN_VALUE}" >
+				<constraints nullable="false"/>
+			</column>
+			<column name="limit__currency" type="VARCHAR(255)"/>
+			<column name="limit__value_" type="bigint"/>
+			<column name="name" type="VARCHAR(255)" >
+				<constraints nullable="false"/>
+			</column>
+			<column name="offer_term" type="VARCHAR(255)" />
+			<column name="price" type="VARCHAR(255)" />
+			<column name="product" type="VARCHAR(255)" />
+			<column name="type" type="VARCHAR(255)" >
+				<constraints nullable="false"/>
+			</column>
+		</createTable>
+	</changeSet>
+	<changeSet author="CodeGeneration" id="create_generated_table_product_offering_with_nested_service" labels="version:">
+		<preConditions onFail="MARK_RAN">
+			<not>
+				<tableExists tableName="product_offering_with_nested_service" />
+			</not>
+		</preConditions>
+		<createTable tableName="product_offering_with_nested_service">
+			<column name="id" type="${UUID}">
+				<constraints nullable="false" primaryKey="true"/>
+			</column>
+		</createTable>
+	</changeSet>
+	<changeSet author="CodeGeneration" id="create_generated_table_product_view" labels="version:">
+		<preConditions onFail="MARK_RAN">
+			<not>
+				<tableExists tableName="product_view" />
+			</not>
+		</preConditions>
+		<createTable tableName="product_view">
+			<column name="id" type="${UUID}">
+				<constraints nullable="false" primaryKey="true"/>
+			</column>
+			<column name="description" type="VARCHAR(255)" />
+			<column name="is_active" type="${BOOLEAN_VALUE}" >
+				<constraints nullable="false"/>
+			</column>
+			<column name="name" type="VARCHAR(255)" >
+				<constraints nullable="false"/>
+			</column>
+			<column name="service" type="VARCHAR(255)" />
+		</createTable>
+	</changeSet>
+	<changeSet author="CodeGeneration" id="create_generated_table_provider_view" labels="version:">
+		<preConditions onFail="MARK_RAN">
+			<not>
+				<tableExists tableName="provider_view" />
+			</not>
+		</preConditions>
+		<createTable tableName="provider_view">
+			<column name="id" type="${UUID}">
+				<constraints nullable="false" primaryKey="true"/>
+			</column>
+			<column name="codes" type="${JSON_OBJECT}"/>
+			<column name="is_default" type="${BOOLEAN_VALUE}" >
+				<constraints nullable="false"/>
+			</column>
+			<column name="name" type="VARCHAR(255)" >
+				<constraints nullable="false"/>
+			</column>
+		</createTable>
+	</changeSet>
+	<changeSet author="CodeGeneration" id="create_generated_table_rating_parameter_set_view" labels="version:">
+		<preConditions onFail="MARK_RAN">
+			<not>
+				<tableExists tableName="rating_parameter_set_view" />
+			</not>
+		</preConditions>
+		<createTable tableName="rating_parameter_set_view">
+			<column name="id" type="${UUID}">
+				<constraints nullable="false" primaryKey="true"/>
+			</column>
+			<column name="description" type="VARCHAR(255)" />
+			<column name="name" type="VARCHAR(255)" >
+				<constraints nullable="false"/>
+			</column>
+		</createTable>
+	</changeSet>
+	<changeSet author="CodeGeneration" id="create_generated_table_rating_parameter_view" labels="version:">
+		<preConditions onFail="MARK_RAN">
+			<not>
+				<tableExists tableName="rating_parameter_view" />
+			</not>
+		</preConditions>
+		<createTable tableName="rating_parameter_view">
+			<column name="id" type="${UUID}">
+				<constraints nullable="false" primaryKey="true"/>
+			</column>
+			<column name="custom_list" type="VARCHAR(255)" />
+			<column name="description" type="VARCHAR(255)" />
+			<column name="name" type="VARCHAR(255)" >
+				<constraints nullable="false"/>
+			</column>
+		</createTable>
+	</changeSet>
+	<changeSet author="CodeGeneration" id="create_generated_table_service_view" labels="version:">
+		<preConditions onFail="MARK_RAN">
+			<not>
+				<tableExists tableName="service_view" />
+			</not>
+		</preConditions>
+		<createTable tableName="service_view">
+			<column name="id" type="${UUID}">
+				<constraints nullable="false" primaryKey="true"/>
+			</column>
+			<column name="name" type="VARCHAR(255)" >
+				<constraints nullable="false"/>
+			</column>
+			<column name="statuses" type="${JSON_OBJECT}"/>
+		</createTable>
+	</changeSet>
+	<changeSet author="CodeGeneration" id="create_generated_table_simple_product_offering_dto" labels="version:">
+		<preConditions onFail="MARK_RAN">
+			<not>
+				<tableExists tableName="simple_product_offering_dto" />
+			</not>
+		</preConditions>
+		<createTable tableName="simple_product_offering_dto">
+			<column name="id" type="${UUID}">
+				<constraints nullable="false" primaryKey="true"/>
+			</column>
+			<column name="allowance" type="bigint" />
+			<column name="custom_fields" type="VARCHAR(255)" />
+			<column name="limit_" type="VARCHAR(255)" />
+			<column name="name" type="VARCHAR(255)" >
+				<constraints nullable="false"/>
+			</column>
+			<column name="product" type="VARCHAR(255)" />
+			<column name="type" type="VARCHAR(255)" >
+				<constraints nullable="false"/>
+			</column>
+			<column name="usage_balance" type="VARCHAR(255)" />
+		</createTable>
+	</changeSet>
+	<changeSet author="CodeGeneration" id="create_generated_table_tariff_calendar_range_list_item" labels="version:">
+		<preConditions onFail="MARK_RAN">
+			<not>
+				<tableExists tableName="tariff_calendar_range_list_item" />
+			</not>
+		</preConditions>
+		<createTable tableName="tariff_calendar_range_list_item">
+			<column name="id" type="${UUID}">
+				<constraints nullable="false" primaryKey="true"/>
+			</column>
+			<column name="calendar_properties_id" type="VARCHAR(255)" />
+			<column name="position" type="int" >
+				<constraints nullable="false"/>
+			</column>
+		</createTable>
+	</changeSet>
+	<changeSet author="CodeGeneration" id="create_generated_table_tariff_calendar_range_view" labels="version:">
+		<preConditions onFail="MARK_RAN">
+			<not>
+				<tableExists tableName="tariff_calendar_range_view" />
+			</not>
+		</preConditions>
+		<createTable tableName="tariff_calendar_range_view">
+			<column name="id" type="${UUID}">
+				<constraints nullable="false" primaryKey="true"/>
+			</column>
+			<column name="calendar_properties_id" type="VARCHAR(255)" />
+			<column name="position" type="int" >
+				<constraints nullable="false"/>
+			</column>
+			<column name="tariff" type="VARCHAR(255)" />
+		</createTable>
+	</changeSet>
+	<changeSet author="CodeGeneration" id="create_generated_table_tariff_plan_view" labels="version:">
+		<preConditions onFail="MARK_RAN">
+			<not>
+				<tableExists tableName="tariff_plan_view" />
+			</not>
+		</preConditions>
+		<createTable tableName="tariff_plan_view">
+			<column name="id" type="${UUID}">
+				<constraints nullable="false" primaryKey="true"/>
+			</column>
+			<column name="calendar" type="VARCHAR(255)" />
+			<column name="description" type="VARCHAR(255)" />
+			<column name="layout" type="VARCHAR(255)" >
+				<constraints nullable="false"/>
+			</column>
+			<column name="name" type="VARCHAR(255)" >
+				<constraints nullable="false"/>
+			</column>
+		</createTable>
+	</changeSet>
+	<changeSet author="CodeGeneration" id="create_generated_table_tariff_step_view" labels="version:">
+		<preConditions onFail="MARK_RAN">
+			<not>
+				<tableExists tableName="tariff_step_view" />
+			</not>
+		</preConditions>
+		<createTable tableName="tariff_step_view">
+			<column name="id" type="${UUID}">
+				<constraints nullable="false" primaryKey="true"/>
+			</column>
+			<column name="currency_id" type="VARCHAR(255)" />
+			<column name="name" type="VARCHAR(255)" >
+				<constraints nullable="false"/>
+			</column>
+			<column name="next_step" type="int" />
+			<column name="price_item" type="VARCHAR(255)" >
+				<constraints nullable="false"/>
+			</column>
+			<column name="repetitions" type="int" />
+			<column name="step" type="int" >
+				<constraints nullable="false"/>
+			</column>
+			<column name="value_" type="bigint" />
+		</createTable>
+	</changeSet>
+	<changeSet author="CodeGeneration" id="create_generated_table_tariff_view" labels="version:">
+		<preConditions onFail="MARK_RAN">
+			<not>
+				<tableExists tableName="tariff_view" />
+			</not>
+		</preConditions>
+		<createTable tableName="tariff_view">
+			<column name="id" type="${UUID}">
+				<constraints nullable="false" primaryKey="true"/>
+			</column>
+			<column name="description" type="VARCHAR(255)" />
+			<column name="is_adaptive" type="${BOOLEAN_VALUE}" />
+			<column name="is_system" type="${BOOLEAN_VALUE}" >
+				<constraints nullable="false"/>
+			</column>
+			<column name="name" type="VARCHAR(255)" >
+				<constraints nullable="false"/>
+			</column>
+			<column name="type" type="VARCHAR(255)" >
+				<constraints nullable="false"/>
+			</column>
+		</createTable>
+	</changeSet>
+
+	<changeSet author="CodeGeneration" id="create_generated_join_table_catalog_offer_label_dto_to_offer_data">
+		<preConditions onFail="MARK_RAN">
+			<not>
+				<tableExists tableName="catalog_offer_label_dto_to_offer_data" />
+			</not>
+		</preConditions>
+		<createTable tableName="catalog_offer_label_dto_to_offer_data">
+			<column name="catalog_offer_label_dto_id" type="${UUID}">
+				<constraints nullable="false" referencedTableName="catalog_offer_label_dto"/>
+			</column>
+			<column name="offer_data_id" type="${UUID}">
+				<constraints nullable="false" referencedTableName="offer_data"/>
+			</column>
+		</createTable>
+		<addPrimaryKey columnNames="catalog_offer_label_dto_id, offer_data_id"
+					   constraintName="pk_catalog_offer_label_dto_to_offer_data"
+					   tableName="catalog_offer_label_dto_to_offer_data"/>
+	</changeSet>
+	<changeSet author="CodeGeneration" id="create_generated_join_table_catalog_product_offering_to_action_set_ids">
+		<preConditions onFail="MARK_RAN">
+			<not>
+				<tableExists tableName="catalog_product_offering_to_action_set_ids" />
+			</not>
+		</preConditions>
+		<createTable tableName="catalog_product_offering_to_action_set_ids">
+			<column name="catalog_product_offering_id" type="${UUID}">
+				<constraints nullable="false" referencedTableName="catalog_product_offering"/>
+			</column>
+			<column name="uuid_id" type="${UUID}">
+				<constraints nullable="false"/>
+			</column>
+		</createTable>
+		<addPrimaryKey columnNames="catalog_product_offering_id, uuid_id"
+					   constraintName="pk_catalog_product_offering_to_action_set_ids"
+					   tableName="catalog_product_offering_to_action_set_ids"/>
+	</changeSet>
+	<changeSet author="CodeGeneration" id="create_generated_join_table_catalog_product_offering_to_compatibility_set_ids">
+		<preConditions onFail="MARK_RAN">
+			<not>
+				<tableExists tableName="catalog_product_offering_to_compatibility_set_ids" />
+			</not>
+		</preConditions>
+		<createTable tableName="catalog_product_offering_to_compatibility_set_ids">
+			<column name="catalog_product_offering_id" type="${UUID}">
+				<constraints nullable="false" referencedTableName="catalog_product_offering"/>
+			</column>
+			<column name="uuid_id" type="${UUID}">
+				<constraints nullable="false"/>
+			</column>
+		</createTable>
+		<addPrimaryKey columnNames="catalog_product_offering_id, uuid_id"
+					   constraintName="pk_catalog_product_offering_to_compatibility_set_ids"
+					   tableName="catalog_product_offering_to_compatibility_set_ids"/>
+	</changeSet>
+	<changeSet author="CodeGeneration" id="create_generated_join_table_catalog_product_offering_to_eligibility_set_ids">
+		<preConditions onFail="MARK_RAN">
+			<not>
+				<tableExists tableName="catalog_product_offering_to_eligibility_set_ids" />
+			</not>
+		</preConditions>
+		<createTable tableName="catalog_product_offering_to_eligibility_set_ids">
+			<column name="catalog_product_offering_id" type="${UUID}">
+				<constraints nullable="false" referencedTableName="catalog_product_offering"/>
+			</column>
+			<column name="uuid_id" type="${UUID}">
+				<constraints nullable="false"/>
+			</column>
+		</createTable>
+		<addPrimaryKey columnNames="catalog_product_offering_id, uuid_id"
+					   constraintName="pk_catalog_product_offering_to_eligibility_set_ids"
+					   tableName="catalog_product_offering_to_eligibility_set_ids"/>
+	</changeSet>
+	<changeSet author="CodeGeneration" id="create_generated_join_table_catalog_product_offering_to_nested_product_offer_ids">
+		<preConditions onFail="MARK_RAN">
+			<not>
+				<tableExists tableName="catalog_product_offering_to_nested_product_offer_ids" />
+			</not>
+		</preConditions>
+		<createTable tableName="catalog_product_offering_to_nested_product_offer_ids">
+			<column name="catalog_product_offering_id" type="${UUID}">
+				<constraints nullable="false" referencedTableName="catalog_product_offering"/>
+			</column>
+			<column name="uuid_id" type="${UUID}">
+				<constraints nullable="false"/>
+			</column>
+		</createTable>
+		<addPrimaryKey columnNames="catalog_product_offering_id, uuid_id"
+					   constraintName="pk_catalog_product_offering_to_nested_product_offer_ids"
+					   tableName="catalog_product_offering_to_nested_product_offer_ids"/>
+	</changeSet>
+	<changeSet author="CodeGeneration" id="create_generated_join_table_catalog_product_offering_to_offer_label_ids">
+		<preConditions onFail="MARK_RAN">
+			<not>
+				<tableExists tableName="catalog_product_offering_to_offer_label_ids" />
+			</not>
+		</preConditions>
+		<createTable tableName="catalog_product_offering_to_offer_label_ids">
+			<column name="catalog_product_offering_id" type="${UUID}">
+				<constraints nullable="false" referencedTableName="catalog_product_offering"/>
+			</column>
+			<column name="uuid_id" type="${UUID}">
+				<constraints nullable="false"/>
+			</column>
+		</createTable>
+		<addPrimaryKey columnNames="catalog_product_offering_id, uuid_id"
+					   constraintName="pk_catalog_product_offering_to_offer_label_ids"
+					   tableName="catalog_product_offering_to_offer_label_ids"/>
+	</changeSet>
+	<changeSet author="CodeGeneration" id="create_generated_join_table_catalog_product_offering_to_parent_product_offers">
+		<preConditions onFail="MARK_RAN">
+			<not>
+				<tableExists tableName="catalog_product_offering_to_parent_product_offers" />
+			</not>
+		</preConditions>
+		<createTable tableName="catalog_product_offering_to_parent_product_offers">
+			<column name="catalog_product_offering_id" type="${UUID}">
+				<constraints nullable="false" referencedTableName="catalog_product_offering"/>
+			</column>
+			<column name="uuid_id" type="${UUID}">
+				<constraints nullable="false"/>
+			</column>
+		</createTable>
+		<addPrimaryKey columnNames="catalog_product_offering_id, uuid_id"
+					   constraintName="pk_catalog_product_offering_to_parent_product_offers"
+					   tableName="catalog_product_offering_to_parent_product_offers"/>
+	</changeSet>
+	<changeSet author="CodeGeneration" id="create_generated_join_table_catalog_product_offering_dto_to_compatibility_set_ids">
+		<preConditions onFail="MARK_RAN">
+			<not>
+				<tableExists tableName="catalog_product_offering_dto_to_compatibility_set_ids" />
+			</not>
+		</preConditions>
+		<createTable tableName="catalog_product_offering_dto_to_compatibility_set_ids">
+			<column name="catalog_product_offering_dto_id" type="${UUID}">
+				<constraints nullable="false" referencedTableName="catalog_product_offering_dto"/>
+			</column>
+			<column name="uuid_id" type="${UUID}">
+				<constraints nullable="false"/>
+			</column>
+		</createTable>
+		<addPrimaryKey columnNames="catalog_product_offering_dto_id, uuid_id"
+					   constraintName="pk_catalog_product_offering_dto_to_compatibility_set_ids"
+					   tableName="catalog_product_offering_dto_to_compatibility_set_ids"/>
+	</changeSet>
+	<changeSet author="CodeGeneration" id="create_generated_join_table_catalog_product_offering_dto_to_eligibility_set_ids">
+		<preConditions onFail="MARK_RAN">
+			<not>
+				<tableExists tableName="catalog_product_offering_dto_to_eligibility_set_ids" />
+			</not>
+		</preConditions>
+		<createTable tableName="catalog_product_offering_dto_to_eligibility_set_ids">
+			<column name="catalog_product_offering_dto_id" type="${UUID}">
+				<constraints nullable="false" referencedTableName="catalog_product_offering_dto"/>
+			</column>
+			<column name="uuid_id" type="${UUID}">
+				<constraints nullable="false"/>
+			</column>
+		</createTable>
+		<addPrimaryKey columnNames="catalog_product_offering_dto_id, uuid_id"
+					   constraintName="pk_catalog_product_offering_dto_to_eligibility_set_ids"
+					   tableName="catalog_product_offering_dto_to_eligibility_set_ids"/>
+	</changeSet>
+	<changeSet author="CodeGeneration" id="create_generated_join_table_catalog_offer_label_dto_to_catalog_product_offering_dto">
+		<preConditions onFail="MARK_RAN">
+			<not>
+				<tableExists tableName="catalog_offer_label_dto_to_catalog_product_offering_dto" />
+			</not>
+		</preConditions>
+		<createTable tableName="catalog_offer_label_dto_to_catalog_product_offering_dto">
+			<column name="catalog_product_offering_dto_id" type="${UUID}">
+				<constraints nullable="false" referencedTableName="catalog_product_offering_dto"/>
+			</column>
+			<column name="catalog_offer_label_dto_id" type="${UUID}">
+				<constraints nullable="false" referencedTableName="catalog_offer_label_dto"/>
+			</column>
+		</createTable>
+		<addPrimaryKey columnNames="catalog_product_offering_dto_id, catalog_offer_label_dto_id"
+					   constraintName="pk_catalog_offer_label_dto_to_catalog_product_offering_dto"
+					   tableName="catalog_offer_label_dto_to_catalog_product_offering_dto"/>
+	</changeSet>
+	<changeSet author="CodeGeneration" id="create_generated_join_table_catalog_product_offering_dto_to_simple_product_offering_dto">
+		<preConditions onFail="MARK_RAN">
+			<not>
+				<tableExists tableName="catalog_product_offering_dto_to_simple_product_offering_dto" />
+			</not>
+		</preConditions>
+		<createTable tableName="catalog_product_offering_dto_to_simple_product_offering_dto">
+			<column name="catalog_product_offering_dto_id" type="${UUID}">
+				<constraints nullable="false" referencedTableName="catalog_product_offering_dto"/>
+			</column>
+			<column name="simple_product_offering_dto_id" type="${UUID}">
+				<constraints nullable="false" referencedTableName="simple_product_offering_dto"/>
+			</column>
+		</createTable>
+		<addPrimaryKey columnNames="catalog_product_offering_dto_id, simple_product_offering_dto_id"
+					   constraintName="pk_catalog_product_offering_dto_to_simple_product_offering_dto"
+					   tableName="catalog_product_offering_dto_to_simple_product_offering_dto"/>
+	</changeSet>
+	<changeSet author="CodeGeneration" id="create_generated_join_table_catalog_tariff_to_catalog_tariff_step">
+		<preConditions onFail="MARK_RAN">
+			<not>
+				<tableExists tableName="catalog_tariff_to_catalog_tariff_step" />
+			</not>
+		</preConditions>
+		<createTable tableName="catalog_tariff_to_catalog_tariff_step">
+			<column name="catalog_tariff_id" type="${UUID}">
+				<constraints nullable="false" referencedTableName="catalog_tariff"/>
+			</column>
+			<column name="catalog_tariff_step_id" type="${UUID}">
+				<constraints nullable="false" referencedTableName="catalog_tariff_step"/>
+			</column>
+		</createTable>
+		<addPrimaryKey columnNames="catalog_tariff_id, catalog_tariff_step_id"
+					   constraintName="pk_catalog_tariff_to_catalog_tariff_step"
+					   tableName="catalog_tariff_to_catalog_tariff_step"/>
+	</changeSet>
+	<changeSet author="CodeGeneration" id="create_generated_join_table_eligibility_compatibility_data_to_uuid">
+		<preConditions onFail="MARK_RAN">
+			<not>
+				<tableExists tableName="eligibility_compatibility_data_to_uuid" />
+			</not>
+		</preConditions>
+		<createTable tableName="eligibility_compatibility_data_to_uuid">
+			<column name="eligibility_compatibility_data_id" type="${UUID}">
+				<constraints nullable="false" referencedTableName="eligibility_compatibility_data"/>
+			</column>
+			<column name="uuid_id" type="${UUID}">
+				<constraints nullable="false"/>
+			</column>
+		</createTable>
+		<addPrimaryKey columnNames="eligibility_compatibility_data_id, uuid_id"
+					   constraintName="pk_eligibility_compatibility_data_to_uuid"
+					   tableName="eligibility_compatibility_data_to_uuid"/>
+	</changeSet>
+	<changeSet author="CodeGeneration" id="create_generated_join_table_individual_nested_offer_dto_to_individual_offer_dto">
+		<preConditions onFail="MARK_RAN">
+			<not>
+				<tableExists tableName="individual_nested_offer_dto_to_individual_offer_dto" />
+			</not>
+		</preConditions>
+		<createTable tableName="individual_nested_offer_dto_to_individual_offer_dto">
+			<column name="individual_offer_dto_id" type="${UUID}">
+				<constraints nullable="false" referencedTableName="individual_offer_dto"/>
+			</column>
+			<column name="individual_nested_offer_dto_id" type="${UUID}">
+				<constraints nullable="false" referencedTableName="individual_nested_offer_dto"/>
+			</column>
+		</createTable>
+		<addPrimaryKey columnNames="individual_offer_dto_id, individual_nested_offer_dto_id"
+					   constraintName="pk_individual_nested_offer_dto_to_individual_offer_dto"
+					   tableName="individual_nested_offer_dto_to_individual_offer_dto"/>
+	</changeSet>
+	<changeSet author="CodeGeneration" id="create_generated_join_table_layout_rating_parameters_view_to_layout_view">
+		<preConditions onFail="MARK_RAN">
+			<not>
+				<tableExists tableName="layout_rating_parameters_view_to_layout_view" />
+			</not>
+		</preConditions>
+		<createTable tableName="layout_rating_parameters_view_to_layout_view">
+			<column name="layout_view_id" type="${UUID}">
+				<constraints nullable="false" referencedTableName="layout_view"/>
+			</column>
+			<column name="layout_rating_parameters_view_id" type="${UUID}">
+				<constraints nullable="false" referencedTableName="layout_rating_parameters_view"/>
+			</column>
+		</createTable>
+		<addPrimaryKey columnNames="layout_view_id, layout_rating_parameters_view_id"
+					   constraintName="pk_layout_rating_parameters_view_to_layout_view"
+					   tableName="layout_rating_parameters_view_to_layout_view"/>
+	</changeSet>
+	<changeSet author="CodeGeneration" id="create_generated_join_table_rating_parameter_set_view_to_rating_parameter_view">
+		<preConditions onFail="MARK_RAN">
+			<not>
+				<tableExists tableName="rating_parameter_set_view_to_rating_parameter_view" />
+			</not>
+		</preConditions>
+		<createTable tableName="rating_parameter_set_view_to_rating_parameter_view">
+			<column name="rating_parameter_set_view_id" type="${UUID}">
+				<constraints nullable="false" referencedTableName="rating_parameter_set_view"/>
+			</column>
+			<column name="rating_parameter_view_id" type="${UUID}">
+				<constraints nullable="false" referencedTableName="rating_parameter_view"/>
+			</column>
+		</createTable>
+		<addPrimaryKey columnNames="rating_parameter_set_view_id, rating_parameter_view_id"
+					   constraintName="pk_rating_parameter_set_view_to_rating_parameter_view"
+					   tableName="rating_parameter_set_view_to_rating_parameter_view"/>
+	</changeSet>
+	<changeSet author="CodeGeneration" id="create_generated_join_table_tariff_step_view_to_tariff_view">
+		<preConditions onFail="MARK_RAN">
+			<not>
+				<tableExists tableName="tariff_step_view_to_tariff_view" />
+			</not>
+		</preConditions>
+		<createTable tableName="tariff_step_view_to_tariff_view">
+			<column name="tariff_view_id" type="${UUID}">
+				<constraints nullable="false" referencedTableName="tariff_view"/>
+			</column>
+			<column name="tariff_step_view_id" type="${UUID}">
+				<constraints nullable="false" referencedTableName="tariff_step_view"/>
+			</column>
+		</createTable>
+		<addPrimaryKey columnNames="tariff_view_id, tariff_step_view_id"
+					   constraintName="pk_tariff_step_view_to_tariff_view"
+					   tableName="tariff_step_view_to_tariff_view"/>
+	</changeSet>
+	<changeSet author="CodeGeneration" id="create_generated_join_table_tariff_calendar_range_view_to_tariff_plan_view">
+		<preConditions onFail="MARK_RAN">
+			<not>
+				<tableExists tableName="tariff_calendar_range_view_to_tariff_plan_view" />
+			</not>
+		</preConditions>
+		<createTable tableName="tariff_calendar_range_view_to_tariff_plan_view">
+			<column name="tariff_plan_view_id" type="${UUID}">
+				<constraints nullable="false" referencedTableName="tariff_plan_view"/>
+			</column>
+			<column name="tariff_calendar_range_view_id" type="${UUID}">
+				<constraints nullable="false" referencedTableName="tariff_calendar_range_view"/>
+			</column>
+		</createTable>
+		<addPrimaryKey columnNames="tariff_plan_view_id, tariff_calendar_range_view_id"
+					   constraintName="pk_tariff_calendar_range_view_to_tariff_plan_view"
+					   tableName="tariff_calendar_range_view_to_tariff_plan_view"/>
+	</changeSet>
+	<changeSet author="CodeGeneration" id="create_generated_join_table_provider_view_to_service_view">
+		<preConditions onFail="MARK_RAN">
+			<not>
+				<tableExists tableName="provider_view_to_service_view" />
+			</not>
+		</preConditions>
+		<createTable tableName="provider_view_to_service_view">
+			<column name="service_view_id" type="${UUID}">
+				<constraints nullable="false" referencedTableName="service_view"/>
+			</column>
+			<column name="provider_view_id" type="${UUID}">
+				<constraints nullable="false" referencedTableName="provider_view"/>
+			</column>
+		</createTable>
+		<addPrimaryKey columnNames="service_view_id, provider_view_id"
+					   constraintName="pk_provider_view_to_service_view"
+					   tableName="provider_view_to_service_view"/>
+	</changeSet>
+	<changeSet author="CodeGeneration" id="create_generated_join_table_nested_product_offering_dto_to_product_offering_with_nested_service">
+		<preConditions onFail="MARK_RAN">
+			<not>
+				<tableExists tableName="nested_product_offering_dto_to_product_offering_with_nested_service" />
+			</not>
+		</preConditions>
+		<createTable tableName="nested_product_offering_dto_to_product_offering_with_nested_service">
+			<column name="product_offering_with_nested_service_id" type="${UUID}">
+				<constraints nullable="false" referencedTableName="product_offering_with_nested_service"/>
+			</column>
+			<column name="nested_product_offering_dto_id" type="${UUID}">
+				<constraints nullable="false" referencedTableName="nested_product_offering_dto"/>
+			</column>
+		</createTable>
+		<addPrimaryKey columnNames="product_offering_with_nested_service_id, nested_product_offering_dto_id"
+					   constraintName="pk_nested_product_offering_dto_to_product_offering_with_nested_service"
+					   tableName="nested_product_offering_dto_to_product_offering_with_nested_service"/>
+	</changeSet>
+	<changeSet author="CodeGeneration" id="create_generated_join_table_action_to_action_set">
+		<preConditions onFail="MARK_RAN">
+			<not>
+				<tableExists tableName="action_to_action_set" />
+			</not>
+		</preConditions>
+		<createTable tableName="action_to_action_set">
+			<column name="action_set_id" type="${UUID}">
+				<constraints nullable="false" referencedTableName="action_set"/>
+			</column>
+			<column name="action_id" type="${UUID}">
+				<constraints nullable="false" referencedTableName="action"/>
+			</column>
+		</createTable>
+		<addPrimaryKey columnNames="action_set_id, action_id"
+					   constraintName="pk_action_to_action_set"
+					   tableName="action_to_action_set"/>
+	</changeSet>
+	<changeSet author="CodeGeneration" id="create_generated_join_table_catalog_balance_to_uuid">
+		<preConditions onFail="MARK_RAN">
+			<not>
+				<tableExists tableName="catalog_balance_to_uuid" />
+			</not>
+		</preConditions>
+		<createTable tableName="catalog_balance_to_uuid">
+			<column name="catalog_balance_id" type="${UUID}">
+				<constraints nullable="false" referencedTableName="catalog_balance"/>
+			</column>
+			<column name="uuid_id" type="${UUID}">
+				<constraints nullable="false"/>
+			</column>
+		</createTable>
+		<addPrimaryKey columnNames="catalog_balance_id, uuid_id"
+					   constraintName="pk_catalog_balance_to_uuid"
+					   tableName="catalog_balance_to_uuid"/>
+	</changeSet>
+	<changeSet author="CodeGeneration" id="create_generated_join_table_catalog_billing_action_to_catalog_billing_action_set">
+		<preConditions onFail="MARK_RAN">
+			<not>
+				<tableExists tableName="catalog_billing_action_to_catalog_billing_action_set" />
+			</not>
+		</preConditions>
+		<createTable tableName="catalog_billing_action_to_catalog_billing_action_set">
+			<column name="catalog_billing_action_set_id" type="${UUID}">
+				<constraints nullable="false" referencedTableName="catalog_billing_action_set"/>
+			</column>
+			<column name="catalog_billing_action_id" type="${UUID}">
+				<constraints nullable="false" referencedTableName="catalog_billing_action"/>
+			</column>
+		</createTable>
+		<addPrimaryKey columnNames="catalog_billing_action_set_id, catalog_billing_action_id"
+					   constraintName="pk_catalog_billing_action_to_catalog_billing_action_set"
+					   tableName="catalog_billing_action_to_catalog_billing_action_set"/>
+	</changeSet>
+	<changeSet author="CodeGeneration" id="create_generated_join_table_catalog_billing_bonus_to_bonus_set_ids">
+		<preConditions onFail="MARK_RAN">
+			<not>
+				<tableExists tableName="catalog_billing_bonus_to_bonus_set_ids" />
+			</not>
+		</preConditions>
+		<createTable tableName="catalog_billing_bonus_to_bonus_set_ids">
+			<column name="catalog_billing_bonus_id" type="${UUID}">
+				<constraints nullable="false" referencedTableName="catalog_billing_bonus"/>
+			</column>
+			<column name="uuid_id" type="${UUID}">
+				<constraints nullable="false"/>
+			</column>
+		</createTable>
+		<addPrimaryKey columnNames="catalog_billing_bonus_id, uuid_id"
+					   constraintName="pk_catalog_billing_bonus_to_bonus_set_ids"
+					   tableName="catalog_billing_bonus_to_bonus_set_ids"/>
+	</changeSet>
+	<changeSet author="CodeGeneration" id="create_generated_join_table_catalog_billing_bonus_to_entity_ids">
+		<preConditions onFail="MARK_RAN">
+			<not>
+				<tableExists tableName="catalog_billing_bonus_to_entity_ids" />
+			</not>
+		</preConditions>
+		<createTable tableName="catalog_billing_bonus_to_entity_ids">
+			<column name="catalog_billing_bonus_id" type="${UUID}">
+				<constraints nullable="false" referencedTableName="catalog_billing_bonus"/>
+			</column>
+			<column name="uuid_id" type="${UUID}">
+				<constraints nullable="false"/>
+			</column>
+		</createTable>
+		<addPrimaryKey columnNames="catalog_billing_bonus_id, uuid_id"
+					   constraintName="pk_catalog_billing_bonus_to_entity_ids"
+					   tableName="catalog_billing_bonus_to_entity_ids"/>
+	</changeSet>
+	<changeSet author="CodeGeneration" id="create_generated_join_table_bonus_step_to_catalog_billing_bonus">
+		<preConditions onFail="MARK_RAN">
+			<not>
+				<tableExists tableName="bonus_step_to_catalog_billing_bonus" />
+			</not>
+		</preConditions>
+		<createTable tableName="bonus_step_to_catalog_billing_bonus">
+			<column name="catalog_billing_bonus_id" type="${UUID}">
+				<constraints nullable="false" referencedTableName="catalog_billing_bonus"/>
+			</column>
+			<column name="bonus_step_id" type="${UUID}">
+				<constraints nullable="false" referencedTableName="bonus_step"/>
+			</column>
+		</createTable>
+		<addPrimaryKey columnNames="catalog_billing_bonus_id, bonus_step_id"
+					   constraintName="pk_bonus_step_to_catalog_billing_bonus"
+					   tableName="bonus_step_to_catalog_billing_bonus"/>
+	</changeSet>
+	<changeSet author="CodeGeneration" id="create_generated_join_table_catalog_billing_bonus_set_to_uuid">
+		<preConditions onFail="MARK_RAN">
+			<not>
+				<tableExists tableName="catalog_billing_bonus_set_to_uuid" />
+			</not>
+		</preConditions>
+		<createTable tableName="catalog_billing_bonus_set_to_uuid">
+			<column name="catalog_billing_bonus_set_id" type="${UUID}">
+				<constraints nullable="false" referencedTableName="catalog_billing_bonus_set"/>
+			</column>
+			<column name="uuid_id" type="${UUID}">
+				<constraints nullable="false"/>
+			</column>
+		</createTable>
+		<addPrimaryKey columnNames="catalog_billing_bonus_set_id, uuid_id"
+					   constraintName="pk_catalog_billing_bonus_set_to_uuid"
+					   tableName="catalog_billing_bonus_set_to_uuid"/>
+	</changeSet>
+	<changeSet author="CodeGeneration" id="create_generated_join_table_catalog_billing_discount_to_discount_set_ids">
+		<preConditions onFail="MARK_RAN">
+			<not>
+				<tableExists tableName="catalog_billing_discount_to_discount_set_ids" />
+			</not>
+		</preConditions>
+		<createTable tableName="catalog_billing_discount_to_discount_set_ids">
+			<column name="catalog_billing_discount_id" type="${UUID}">
+				<constraints nullable="false" referencedTableName="catalog_billing_discount"/>
+			</column>
+			<column name="uuid_id" type="${UUID}">
+				<constraints nullable="false"/>
+			</column>
+		</createTable>
+		<addPrimaryKey columnNames="catalog_billing_discount_id, uuid_id"
+					   constraintName="pk_catalog_billing_discount_to_discount_set_ids"
+					   tableName="catalog_billing_discount_to_discount_set_ids"/>
+	</changeSet>
+	<changeSet author="CodeGeneration" id="create_generated_join_table_catalog_billing_discount_to_entity_ids">
+		<preConditions onFail="MARK_RAN">
+			<not>
+				<tableExists tableName="catalog_billing_discount_to_entity_ids" />
+			</not>
+		</preConditions>
+		<createTable tableName="catalog_billing_discount_to_entity_ids">
+			<column name="catalog_billing_discount_id" type="${UUID}">
+				<constraints nullable="false" referencedTableName="catalog_billing_discount"/>
+			</column>
+			<column name="uuid_id" type="${UUID}">
+				<constraints nullable="false"/>
+			</column>
+		</createTable>
+		<addPrimaryKey columnNames="catalog_billing_discount_id, uuid_id"
+					   constraintName="pk_catalog_billing_discount_to_entity_ids"
+					   tableName="catalog_billing_discount_to_entity_ids"/>
+	</changeSet>
+	<changeSet author="CodeGeneration" id="create_generated_join_table_catalog_billing_discount_to_discount_step">
+		<preConditions onFail="MARK_RAN">
+			<not>
+				<tableExists tableName="catalog_billing_discount_to_discount_step" />
+			</not>
+		</preConditions>
+		<createTable tableName="catalog_billing_discount_to_discount_step">
+			<column name="catalog_billing_discount_id" type="${UUID}">
+				<constraints nullable="false" referencedTableName="catalog_billing_discount"/>
+			</column>
+			<column name="discount_step_id" type="${UUID}">
+				<constraints nullable="false" referencedTableName="discount_step"/>
+			</column>
+		</createTable>
+		<addPrimaryKey columnNames="catalog_billing_discount_id, discount_step_id"
+					   constraintName="pk_catalog_billing_discount_to_discount_step"
+					   tableName="catalog_billing_discount_to_discount_step"/>
+	</changeSet>
+	<changeSet author="CodeGeneration" id="create_generated_join_table_catalog_billing_discount_set_to_uuid">
+		<preConditions onFail="MARK_RAN">
+			<not>
+				<tableExists tableName="catalog_billing_discount_set_to_uuid" />
+			</not>
+		</preConditions>
+		<createTable tableName="catalog_billing_discount_set_to_uuid">
+			<column name="catalog_billing_discount_set_id" type="${UUID}">
+				<constraints nullable="false" referencedTableName="catalog_billing_discount_set"/>
+			</column>
+			<column name="uuid_id" type="${UUID}">
+				<constraints nullable="false"/>
+			</column>
+		</createTable>
+		<addPrimaryKey columnNames="catalog_billing_discount_set_id, uuid_id"
+					   constraintName="pk_catalog_billing_discount_set_to_uuid"
+					   tableName="catalog_billing_discount_set_to_uuid"/>
+	</changeSet>
+	<changeSet author="CodeGeneration" id="create_generated_join_table_catalog_billing_tax_to_uuid">
+		<preConditions onFail="MARK_RAN">
+			<not>
+				<tableExists tableName="catalog_billing_tax_to_uuid" />
+			</not>
+		</preConditions>
+		<createTable tableName="catalog_billing_tax_to_uuid">
+			<column name="catalog_billing_tax_id" type="${UUID}">
+				<constraints nullable="false" referencedTableName="catalog_billing_tax"/>
+			</column>
+			<column name="uuid_id" type="${UUID}">
+				<constraints nullable="false"/>
+			</column>
+		</createTable>
+		<addPrimaryKey columnNames="catalog_billing_tax_id, uuid_id"
+					   constraintName="pk_catalog_billing_tax_to_uuid"
+					   tableName="catalog_billing_tax_to_uuid"/>
+	</changeSet>
+	<changeSet author="CodeGeneration" id="create_generated_join_table_catalog_billing_tax_set_to_uuid">
+		<preConditions onFail="MARK_RAN">
+			<not>
+				<tableExists tableName="catalog_billing_tax_set_to_uuid" />
+			</not>
+		</preConditions>
+		<createTable tableName="catalog_billing_tax_set_to_uuid">
+			<column name="catalog_billing_tax_set_id" type="${UUID}">
+				<constraints nullable="false" referencedTableName="catalog_billing_tax_set"/>
+			</column>
+			<column name="uuid_id" type="${UUID}">
+				<constraints nullable="false"/>
+			</column>
+		</createTable>
+		<addPrimaryKey columnNames="catalog_billing_tax_set_id, uuid_id"
+					   constraintName="pk_catalog_billing_tax_set_to_uuid"
+					   tableName="catalog_billing_tax_set_to_uuid"/>
+	</changeSet>
+	<changeSet author="CodeGeneration" id="create_generated_join_table_layout_group_item_to_layout_parameter_item_dto">
+		<preConditions onFail="MARK_RAN">
+			<not>
+				<tableExists tableName="layout_group_item_to_layout_parameter_item_dto" />
+			</not>
+		</preConditions>
+		<createTable tableName="layout_group_item_to_layout_parameter_item_dto">
+			<column name="layout_group_item_id" type="${UUID}">
+				<constraints nullable="false" referencedTableName="layout_group_item"/>
+			</column>
+			<column name="layout_parameter_item_dto_id" type="${UUID}">
+				<constraints nullable="false" referencedTableName="layout_parameter_item_dto"/>
+			</column>
+		</createTable>
+		<addPrimaryKey columnNames="layout_group_item_id, layout_parameter_item_dto_id"
+					   constraintName="pk_layout_group_item_to_layout_parameter_item_dto"
+					   tableName="layout_group_item_to_layout_parameter_item_dto"/>
+	</changeSet>
+	<changeSet author="CodeGeneration" id="create_generated_join_table_layout_group_item_to_layout_rating_parameters_group">
+		<preConditions onFail="MARK_RAN">
+			<not>
+				<tableExists tableName="layout_group_item_to_layout_rating_parameters_group" />
+			</not>
+		</preConditions>
+		<createTable tableName="layout_group_item_to_layout_rating_parameters_group">
+			<column name="layout_rating_parameters_group_id" type="${UUID}">
+				<constraints nullable="false" referencedTableName="layout_rating_parameters_group"/>
+			</column>
+			<column name="layout_group_item_id" type="${UUID}">
+				<constraints nullable="false" referencedTableName="layout_group_item"/>
+			</column>
+		</createTable>
+		<addPrimaryKey columnNames="layout_rating_parameters_group_id, layout_group_item_id"
+					   constraintName="pk_layout_group_item_to_layout_rating_parameters_group"
+					   tableName="layout_group_item_to_layout_rating_parameters_group"/>
+	</changeSet>
+	<changeSet author="CodeGeneration" id="create_generated_join_table_layout_rating_parameters_to_uuid">
+		<preConditions onFail="MARK_RAN">
+			<not>
+				<tableExists tableName="layout_rating_parameters_to_uuid" />
+			</not>
+		</preConditions>
+		<createTable tableName="layout_rating_parameters_to_uuid">
+			<column name="layout_rating_parameters_id" type="${UUID}">
+				<constraints nullable="false" referencedTableName="layout_rating_parameters"/>
+			</column>
+			<column name="uuid_id" type="${UUID}">
+				<constraints nullable="false"/>
+			</column>
+		</createTable>
+		<addPrimaryKey columnNames="layout_rating_parameters_id, uuid_id"
+					   constraintName="pk_layout_rating_parameters_to_uuid"
+					   tableName="layout_rating_parameters_to_uuid"/>
+	</changeSet>
+	<changeSet author="CodeGeneration" id="create_generated_join_table_layout_parameter_item_to_layout_rating_parameters">
+		<preConditions onFail="MARK_RAN">
+			<not>
+				<tableExists tableName="layout_parameter_item_to_layout_rating_parameters" />
+			</not>
+		</preConditions>
+		<createTable tableName="layout_parameter_item_to_layout_rating_parameters">
+			<column name="layout_rating_parameters_id" type="${UUID}">
+				<constraints nullable="false" referencedTableName="layout_rating_parameters"/>
+			</column>
+			<column name="layout_parameter_item_id" type="${UUID}">
+				<constraints nullable="false" referencedTableName="layout_parameter_item"/>
+			</column>
+		</createTable>
+		<addPrimaryKey columnNames="layout_rating_parameters_id, layout_parameter_item_id"
+					   constraintName="pk_layout_parameter_item_to_layout_rating_parameters"
+					   tableName="layout_parameter_item_to_layout_rating_parameters"/>
+	</changeSet>
+	<changeSet author="CodeGeneration" id="create_generated_join_table_catalog_layout_to_layout_rating_parameters">
+		<preConditions onFail="MARK_RAN">
+			<not>
+				<tableExists tableName="catalog_layout_to_layout_rating_parameters" />
+			</not>
+		</preConditions>
+		<createTable tableName="catalog_layout_to_layout_rating_parameters">
+			<column name="catalog_layout_id" type="${UUID}">
+				<constraints nullable="false" referencedTableName="catalog_layout"/>
+			</column>
+			<column name="layout_rating_parameters_id" type="${UUID}">
+				<constraints nullable="false" referencedTableName="layout_rating_parameters"/>
+			</column>
+		</createTable>
+		<addPrimaryKey columnNames="catalog_layout_id, layout_rating_parameters_id"
+					   constraintName="pk_catalog_layout_to_layout_rating_parameters"
+					   tableName="catalog_layout_to_layout_rating_parameters"/>
+	</changeSet>
+	<changeSet author="CodeGeneration" id="create_generated_join_table_lcp_configuration_row_to_lcp_configuration_value">
+		<preConditions onFail="MARK_RAN">
+			<not>
+				<tableExists tableName="lcp_configuration_row_to_lcp_configuration_value" />
+			</not>
+		</preConditions>
+		<createTable tableName="lcp_configuration_row_to_lcp_configuration_value">
+			<column name="lcp_configuration_row_id" type="${UUID}">
+				<constraints nullable="false" referencedTableName="lcp_configuration_row"/>
+			</column>
+			<column name="lcp_configuration_value_id" type="${UUID}">
+				<constraints nullable="false" referencedTableName="lcp_configuration_value"/>
+			</column>
+		</createTable>
+		<addPrimaryKey columnNames="lcp_configuration_row_id, lcp_configuration_value_id"
+					   constraintName="pk_lcp_configuration_row_to_lcp_configuration_value"
+					   tableName="lcp_configuration_row_to_lcp_configuration_value"/>
+	</changeSet>
+	<changeSet author="CodeGeneration" id="create_generated_join_table_catalog_lcp_configuration_to_lcp_configuration_row">
+		<preConditions onFail="MARK_RAN">
+			<not>
+				<tableExists tableName="catalog_lcp_configuration_to_lcp_configuration_row" />
+			</not>
+		</preConditions>
+		<createTable tableName="catalog_lcp_configuration_to_lcp_configuration_row">
+			<column name="catalog_lcp_configuration_id" type="${UUID}">
+				<constraints nullable="false" referencedTableName="catalog_lcp_configuration"/>
+			</column>
+			<column name="lcp_configuration_row_id" type="${UUID}">
+				<constraints nullable="false" referencedTableName="lcp_configuration_row"/>
+			</column>
+		</createTable>
+		<addPrimaryKey columnNames="catalog_lcp_configuration_id, lcp_configuration_row_id"
+					   constraintName="pk_catalog_lcp_configuration_to_lcp_configuration_row"
+					   tableName="catalog_lcp_configuration_to_lcp_configuration_row"/>
+	</changeSet>
+	<changeSet author="CodeGeneration" id="create_generated_join_table_catalog_lcp_template_to_lcp_template_header">
+		<preConditions onFail="MARK_RAN">
+			<not>
+				<tableExists tableName="catalog_lcp_template_to_lcp_template_header" />
+			</not>
+		</preConditions>
+		<createTable tableName="catalog_lcp_template_to_lcp_template_header">
+			<column name="catalog_lcp_template_id" type="${UUID}">
+				<constraints nullable="false" referencedTableName="catalog_lcp_template"/>
+			</column>
+			<column name="lcp_template_header_id" type="${UUID}">
+				<constraints nullable="false" referencedTableName="lcp_template_header"/>
+			</column>
+		</createTable>
+		<addPrimaryKey columnNames="catalog_lcp_template_id, lcp_template_header_id"
+					   constraintName="pk_catalog_lcp_template_to_lcp_template_header"
+					   tableName="catalog_lcp_template_to_lcp_template_header"/>
+	</changeSet>
+	<changeSet author="CodeGeneration" id="create_generated_join_table_catalog_parameter_group_to_uuid">
+		<preConditions onFail="MARK_RAN">
+			<not>
+				<tableExists tableName="catalog_parameter_group_to_uuid" />
+			</not>
+		</preConditions>
+		<createTable tableName="catalog_parameter_group_to_uuid">
+			<column name="catalog_parameter_group_id" type="${UUID}">
+				<constraints nullable="false" referencedTableName="catalog_parameter_group"/>
+			</column>
+			<column name="uuid_id" type="${UUID}">
+				<constraints nullable="false"/>
+			</column>
+		</createTable>
+		<addPrimaryKey columnNames="catalog_parameter_group_id, uuid_id"
+					   constraintName="pk_catalog_parameter_group_to_uuid"
+					   tableName="catalog_parameter_group_to_uuid"/>
+	</changeSet>
+	<changeSet author="CodeGeneration" id="create_generated_join_table_catalog_product_to_catalog_provider">
+		<preConditions onFail="MARK_RAN">
+			<not>
+				<tableExists tableName="catalog_product_to_catalog_provider" />
+			</not>
+		</preConditions>
+		<createTable tableName="catalog_product_to_catalog_provider">
+			<column name="catalog_provider_id" type="${UUID}">
+				<constraints nullable="false" referencedTableName="catalog_provider"/>
+			</column>
+			<column name="catalog_product_id" type="${UUID}">
+				<constraints nullable="false" referencedTableName="catalog_product"/>
+			</column>
+		</createTable>
+		<addPrimaryKey columnNames="catalog_provider_id, catalog_product_id"
+					   constraintName="pk_catalog_product_to_catalog_provider"
+					   tableName="catalog_product_to_catalog_provider"/>
+	</changeSet>
+	<changeSet author="CodeGeneration" id="create_generated_join_table_catalog_provider_to_uuid">
+		<preConditions onFail="MARK_RAN">
+			<not>
+				<tableExists tableName="catalog_provider_to_uuid" />
+			</not>
+		</preConditions>
+		<createTable tableName="catalog_provider_to_uuid">
+			<column name="catalog_provider_id" type="${UUID}">
+				<constraints nullable="false" referencedTableName="catalog_provider"/>
+			</column>
+			<column name="uuid_id" type="${UUID}">
+				<constraints nullable="false"/>
+			</column>
+		</createTable>
+		<addPrimaryKey columnNames="catalog_provider_id, uuid_id"
+					   constraintName="pk_catalog_provider_to_uuid"
+					   tableName="catalog_provider_to_uuid"/>
+	</changeSet>
+	<changeSet author="CodeGeneration" id="create_generated_join_table_catalog_rating_parameter_to_parameter_group_ids">
+		<preConditions onFail="MARK_RAN">
+			<not>
+				<tableExists tableName="catalog_rating_parameter_to_parameter_group_ids" />
+			</not>
+		</preConditions>
+		<createTable tableName="catalog_rating_parameter_to_parameter_group_ids">
+			<column name="catalog_rating_parameter_id" type="${UUID}">
+				<constraints nullable="false" referencedTableName="catalog_rating_parameter"/>
+			</column>
+			<column name="uuid_id" type="${UUID}">
+				<constraints nullable="false"/>
+			</column>
+		</createTable>
+		<addPrimaryKey columnNames="catalog_rating_parameter_id, uuid_id"
+					   constraintName="pk_catalog_rating_parameter_to_parameter_group_ids"
+					   tableName="catalog_rating_parameter_to_parameter_group_ids"/>
+	</changeSet>
+	<changeSet author="CodeGeneration" id="create_generated_join_table_catalog_rating_parameter_to_rating_parameter_set_ids">
+		<preConditions onFail="MARK_RAN">
+			<not>
+				<tableExists tableName="catalog_rating_parameter_to_rating_parameter_set_ids" />
+			</not>
+		</preConditions>
+		<createTable tableName="catalog_rating_parameter_to_rating_parameter_set_ids">
+			<column name="catalog_rating_parameter_id" type="${UUID}">
+				<constraints nullable="false" referencedTableName="catalog_rating_parameter"/>
+			</column>
+			<column name="uuid_id" type="${UUID}">
+				<constraints nullable="false"/>
+			</column>
+		</createTable>
+		<addPrimaryKey columnNames="catalog_rating_parameter_id, uuid_id"
+					   constraintName="pk_catalog_rating_parameter_to_rating_parameter_set_ids"
+					   tableName="catalog_rating_parameter_to_rating_parameter_set_ids"/>
+	</changeSet>
+	<changeSet author="CodeGeneration" id="create_generated_join_table_catalog_rating_parameter_set_to_uuid">
+		<preConditions onFail="MARK_RAN">
+			<not>
+				<tableExists tableName="catalog_rating_parameter_set_to_uuid" />
+			</not>
+		</preConditions>
+		<createTable tableName="catalog_rating_parameter_set_to_uuid">
+			<column name="catalog_rating_parameter_set_id" type="${UUID}">
+				<constraints nullable="false" referencedTableName="catalog_rating_parameter_set"/>
+			</column>
+			<column name="uuid_id" type="${UUID}">
+				<constraints nullable="false"/>
+			</column>
+		</createTable>
+		<addPrimaryKey columnNames="catalog_rating_parameter_set_id, uuid_id"
+					   constraintName="pk_catalog_rating_parameter_set_to_uuid"
+					   tableName="catalog_rating_parameter_set_to_uuid"/>
+	</changeSet>
+	<changeSet author="CodeGeneration" id="create_generated_join_table_catalog_service_to_uuid">
+		<preConditions onFail="MARK_RAN">
+			<not>
+				<tableExists tableName="catalog_service_to_uuid" />
+			</not>
+		</preConditions>
+		<createTable tableName="catalog_service_to_uuid">
+			<column name="catalog_service_id" type="${UUID}">
+				<constraints nullable="false" referencedTableName="catalog_service"/>
+			</column>
+			<column name="uuid_id" type="${UUID}">
+				<constraints nullable="false"/>
+			</column>
+		</createTable>
+		<addPrimaryKey columnNames="catalog_service_id, uuid_id"
+					   constraintName="pk_catalog_service_to_uuid"
+					   tableName="catalog_service_to_uuid"/>
+	</changeSet>
+	<changeSet author="CodeGeneration" id="create_generated_join_table_tariff_calendar_range_to_tariff_calendar_range_list_item">
+		<preConditions onFail="MARK_RAN">
+			<not>
+				<tableExists tableName="tariff_calendar_range_to_tariff_calendar_range_list_item" />
+			</not>
+		</preConditions>
+		<createTable tableName="tariff_calendar_range_to_tariff_calendar_range_list_item">
+			<column name="tariff_calendar_range_id" type="${UUID}">
+				<constraints nullable="false" referencedTableName="tariff_calendar_range"/>
+			</column>
+			<column name="tariff_calendar_range_list_item_id" type="${UUID}">
+				<constraints nullable="false" referencedTableName="tariff_calendar_range_list_item"/>
+			</column>
+		</createTable>
+		<addPrimaryKey columnNames="tariff_calendar_range_id, tariff_calendar_range_list_item_id"
+					   constraintName="pk_tariff_calendar_range_to_tariff_calendar_range_list_item"
+					   tableName="tariff_calendar_range_to_tariff_calendar_range_list_item"/>
+	</changeSet>
+	<changeSet author="CodeGeneration" id="create_generated_join_table_catalog_zone_to_uuid">
+		<preConditions onFail="MARK_RAN">
+			<not>
+				<tableExists tableName="catalog_zone_to_uuid" />
+			</not>
+		</preConditions>
+		<createTable tableName="catalog_zone_to_uuid">
+			<column name="catalog_zone_id" type="${UUID}">
+				<constraints nullable="false" referencedTableName="catalog_zone"/>
+			</column>
+			<column name="uuid_id" type="${UUID}">
+				<constraints nullable="false"/>
+			</column>
+		</createTable>
+		<addPrimaryKey columnNames="catalog_zone_id, uuid_id"
+					   constraintName="pk_catalog_zone_to_uuid"
+					   tableName="catalog_zone_to_uuid"/>
+	</changeSet>
+	<changeSet author="CodeGeneration" id="create_generated_join_table_catalog_zone_set_to_uuid">
+		<preConditions onFail="MARK_RAN">
+			<not>
+				<tableExists tableName="catalog_zone_set_to_uuid" />
+			</not>
+		</preConditions>
+		<createTable tableName="catalog_zone_set_to_uuid">
+			<column name="catalog_zone_set_id" type="${UUID}">
+				<constraints nullable="false" referencedTableName="catalog_zone_set"/>
+			</column>
+			<column name="uuid_id" type="${UUID}">
+				<constraints nullable="false"/>
+			</column>
+		</createTable>
+		<addPrimaryKey columnNames="catalog_zone_set_id, uuid_id"
+					   constraintName="pk_catalog_zone_set_to_uuid"
+					   tableName="catalog_zone_set_to_uuid"/>
+	</changeSet>
+	<changeSet author="CodeGeneration" id="create_generated_join_table_catalog_zone_to_catalog_zone_set">
+		<preConditions onFail="MARK_RAN">
+			<not>
+				<tableExists tableName="catalog_zone_to_catalog_zone_set" />
+			</not>
+		</preConditions>
+		<createTable tableName="catalog_zone_to_catalog_zone_set">
+			<column name="catalog_zone_set_id" type="${UUID}">
+				<constraints nullable="false" referencedTableName="catalog_zone_set"/>
+			</column>
+			<column name="catalog_zone_id" type="${UUID}">
+				<constraints nullable="false" referencedTableName="catalog_zone"/>
+			</column>
+		</createTable>
+		<addPrimaryKey columnNames="catalog_zone_set_id, catalog_zone_id"
+					   constraintName="pk_catalog_zone_to_catalog_zone_set"
+					   tableName="catalog_zone_to_catalog_zone_set"/>
+	</changeSet>
+	<changeSet author="CodeGeneration" id="create_generated_join_table_compatibility_set_to_uuid">
+		<preConditions onFail="MARK_RAN">
+			<not>
+				<tableExists tableName="compatibility_set_to_uuid" />
+			</not>
+		</preConditions>
+		<createTable tableName="compatibility_set_to_uuid">
+			<column name="compatibility_set_id" type="${UUID}">
+				<constraints nullable="false" referencedTableName="compatibility_set"/>
+			</column>
+			<column name="uuid_id" type="${UUID}">
+				<constraints nullable="false"/>
+			</column>
+		</createTable>
+		<addPrimaryKey columnNames="compatibility_set_id, uuid_id"
+					   constraintName="pk_compatibility_set_to_uuid"
+					   tableName="compatibility_set_to_uuid"/>
+	</changeSet>
+</databaseChangeLog>
